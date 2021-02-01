@@ -25,6 +25,17 @@ const Voiceit = NativeModules.Voiceit;
 //  });
 ```
 
+## Permissions 
+For IOS, please make sure your project has Camera and Microphone permissions in the info.plist file. Add the following inside the <dict> XML:
+```
+NSCameraUsageDescription
+	<key>NSCameraUsageDescription</key>
+	<string>This app requires to access your camera for biometric services</string>
+NSMicrophoneUsageDescription
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app requires to access your microphone for biometric services</string>
+```
+
 ## Functions
 Initialize the module as follows:
 ```
