@@ -23,7 +23,7 @@ RCT_EXPORT_METHOD(encapsulatedFaceEnrollment:(NSString *)userId callback:(RCTRes
       [myVoiceit encapsulatedFaceEnrollUser: userId userEnrollmentsCancelled:^{
           callback(@[@"Cancelled"]);
       } userEnrollmentsPassed:^{
-          callback(@[@"Passed"]);
+          callback(@[@"User successfully enrolled"]);
       }];
     });
 
@@ -37,7 +37,7 @@ voicePrintPhrase:(NSString*)voicePrintPhrase callback:(RCTResponseSenderBlock)ca
     voicePrintPhrase: voicePrintPhrase userEnrollmentsCancelled:^{
         callback(@[@"Cancelled"]);
     } userEnrollmentsPassed:^{
-        callback(@[@"Passed"]);
+        callback(@[@"User successfully enrolled"]);
     }];
     });
 }
@@ -50,7 +50,7 @@ voicePrintPhrase:(NSString*)voicePrintPhrase callback:(RCTResponseSenderBlock)ca
    voicePrintPhrase: voicePrintPhrase userEnrollmentsCancelled:^{
         callback(@[@"Cancelled"]);
     } userEnrollmentsPassed:^{
-        callback(@[@"Passed"]);
+        callback(@[@"User successfully enrolled"]);
     }];
         });
 }
@@ -68,9 +68,9 @@ RCT_EXPORT_METHOD(encapsulatedFaceVerification:(NSString *)userId
     userVerificationCancelled:^{
         callback(@[@"User Verication Cancelled"]);
     }  userVerificationSuccessful:^(float faceConfidence, NSString * jsonResponse){
-        callback(@[@"User Verication Successful"]);
+        callback(@[jsonResponse]);
     } userVerificationFailed:^(float faceConfidence, NSString * jsonResponse){
-        callback(@[@"User Verication Failed"]);
+        callback(@[jsonResponse]);
     }];
     });
 }
@@ -91,9 +91,9 @@ doLivenessDetection:(BOOL)doLivenessDetection
                    userVerificationCancelled:^{
                        callback(@[@"User Verication Cancelled"]);
                    }  userVerificationSuccessful:^(float faceConfidence, float voiceConfidence, NSString * jsonResponse){
-                       callback(@[@"User Verication Successful"]);
+                       callback(@[jsonResponse]);
                    } userVerificationFailed:^(float faceConfidence, float voiceConfidence, NSString * jsonResponse){
-                       callback(@[@"User Verication Failed"]);
+                       callback(@[jsonResponse]);
                    }];
                        });
 }
@@ -111,9 +111,9 @@ callback:(RCTResponseSenderBlock)callback)
     userVerificationCancelled:^{
         callback(@[@"User Verication Cancelled"]);
     } userVerificationSuccessful:^(float voiceConfidence, NSString * jsonResponse){
-        callback(@[@"User Verication Successful"]);
+        callback(@[jsonResponse]);
     } userVerificationFailed:^(float voiceConfidence, NSString * jsonResponse){
-                callback(@[@"User Verication Failed, voiceConfidence "]);
+                callback(@[jsonResponse]);
     }];
     });
 }
