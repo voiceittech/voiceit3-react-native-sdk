@@ -25,6 +25,23 @@ const Voiceit = NativeModules.Voiceit;
 //  });
 ```
 
+## Requirements
+
+#### IOS Deployment Target (IOS Version)
+Please make sure that the minimum Deployment Target for your project is IOS 11
+
+#### Android SDK Version
+The minumum Android SDK version (API level) should be set to 17 in your build.gradle file: 
+```
+minSdkVersion: 17
+```
+
+#### Billing 
+In order to use en-US or other content languages you need to have a developer account that has funds. In order to add funds to your account please login at: https://voiceit.io/login and navigate to: https://voiceit.io/billing and add funds.
+
+#### Voiceprint Phrases 
+Make sure you review your Voiceprint Phrases by navigating to: https://voiceit.io/phraseManagement in order to know what to pass for voicePrintPhrase parameter
+
 ## Plist Permissions 
 For IOS, please make sure your project has Camera and Microphone permissions in the info.plist file. Also, make sure that the app runs in light theme. Add the following inside the <dict> XML:
 ```
