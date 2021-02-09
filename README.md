@@ -35,6 +35,27 @@ For IOS, please make sure your project has Camera and Microphone permissions in 
 <key>UIUserInterfaceStyle</key>
 <string>Light</string>
 ```
+  
+## (For Android) Liveness Tutorial 
+The liveness tutorial can be disabled by passing a boolean as the 6th argument in EncapsulatedVideoVerification:
+```
+voiceItModule.encapsulatedVideoVerification(
+      options.user_id,options.content_language, 
+      options.phrase, 
+      this.props.liveness,
+      this.props.audioLiveness, 
+      this.props.livenessTutorial, 
+      (res)=>{callback(res);});
+```
+And as the 5th argument for encapsulatedFaceVerification:
+```
+voiceItModule.encapsulatedFaceVerification(
+      options.user_id,options.content_language, 
+      this.props.liveness,
+      this.props.audioLiveness, 
+      this.props.livenessTutorial,
+      (res)=>{callback(res);});
+```
 
 ## Functions
 Initialize the module as follows:
