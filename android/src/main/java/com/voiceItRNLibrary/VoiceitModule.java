@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package com.voiceItRNLibrary;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.facebook.react.bridge.ReactApplicationContext;
