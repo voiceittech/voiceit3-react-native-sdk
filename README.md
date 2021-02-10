@@ -1,8 +1,6 @@
 # react-native-voiceit
 
 ## Getting started
-Firstly, make sure that the deployment target for your root project's IOS is >= 11, and for Android the SDK version is >= 17
-
 `$ npm install react-native-voiceit --save`
 
 ### Mostly automatic installation
