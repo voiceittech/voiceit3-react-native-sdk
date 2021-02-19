@@ -128,40 +128,6 @@ public class VoiceitModule extends ReactContextBaseJavaModule {
             }
         });
     }
-
-    @ReactMethod
-    public void encapsulatedFaceIdentification(String groupId, Boolean liveness,  int livenessTestsFailsAllowed, int livenessTestsNeeded, final Callback callback){
-        myVoiceIt.encapsulatedFaceIdentification(getCurrentActivity(), groupId, liveness,  livenessTestsFailsAllowed, livenessTestsNeeded, new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                callback.invoke(response.toString());
-            }
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                if (errorResponse != null) {
-                    callback.invoke(errorResponse.toString());
-                }
-            }
-        });
-    }
-
-    @ReactMethod
-    public void encapsulatedFaceIdentification(String groupId, Boolean liveness, final Callback callback){
-        myVoiceIt.encapsulatedFaceIdentification(getCurrentActivity(), groupId, liveness, new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                callback.invoke(response.toString());
-            }
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                if (errorResponse != null) {
-                    callback.invoke(errorResponse.toString());
-                }
-            }
-        });
-    }
-
-
     @ReactMethod
     public void encapsulatedVideoEnrollment(String userId, String contentLanguage, String phrase, final Callback callback){
         myVoiceIt.encapsulatedVideoEnrollment(getCurrentActivity(), userId, contentLanguage, phrase,new JsonHttpResponseHandler(){
@@ -197,54 +163,6 @@ public class VoiceitModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void encapsulatedVideoVerification(String userId, String contentLanguage, String phrase, Boolean liveness, Boolean audioLiveness, Boolean livenessTutorial, final Callback callback){
         myVoiceIt.encapsulatedVideoVerification(getCurrentActivity(),userId,contentLanguage,phrase,liveness, audioLiveness, livenessTutorial, new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                callback.invoke(response.toString());
-            }
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                if (errorResponse != null) {
-                    callback.invoke(errorResponse.toString());
-                }
-            }
-        });
-    }
-
-    @ReactMethod
-    public void encapsulatedVideoIdentifiaction(String groupId, String contentLanguage, String phrase, final Callback callback){
-        myVoiceIt.encapsulatedVideoIdentification(getCurrentActivity(),groupId,contentLanguage,phrase,false, new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                callback.invoke(response.toString());
-            }
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                if (errorResponse != null) {
-                    callback.invoke(errorResponse.toString());
-                }
-            }
-        });
-    }
-
-    @ReactMethod
-    public void encapsulatedVideoIdentification(String userId, String contentLanguage, Boolean liveness, String phrase, final Callback callback){
-        myVoiceIt.encapsulatedVideoIdentification(getCurrentActivity(),userId,contentLanguage,phrase,liveness, new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                callback.invoke(response.toString());
-            }
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                if (errorResponse != null) {
-                    callback.invoke(errorResponse.toString());
-                }
-            }
-        });
-    }
-
-    @ReactMethod
-    public void encapsulatedVideoIdentifiaction(String groupId, String contentLanguage, Boolean liveness, int livenessTestsFailsAllowed, int livenessTestsNeeded, String phrase, final Callback callback){
-        myVoiceIt.encapsulatedVideoIdentification(getCurrentActivity(),groupId,contentLanguage,phrase,liveness, livenessTestsFailsAllowed, livenessTestsNeeded, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 callback.invoke(response.toString());
@@ -779,77 +697,5 @@ public class VoiceitModule extends ReactContextBaseJavaModule {
         });
     }
 
-    @ReactMethod
-    public void faceIdentification(String groupId, String path, final Callback callback){
-        File video = new File(path);
-        if (!video.exists()){
-            callback.invoke("File Doesn't exist: " + path);
-        } else {
-            myVoiceIt.faceIdentification(groupId, video, new JsonHttpResponseHandler(){
-                @Override
-                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                    callback.invoke(response.toString());
-                }
-                @Override
-                public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                    if (errorResponse != null) {
-                        callback.invoke(errorResponse.toString());
-                    }
-                }
-            });
-        }
-    }
 
-    @ReactMethod
-    public void faceIdentificationByUrl(String groupId, String url, final Callback callback){
-        myVoiceIt.faceIdentificationByUrl(groupId, url, new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                callback.invoke(response.toString());
-            }
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                if (errorResponse != null) {
-                    callback.invoke(errorResponse.toString());
-                }
-            }
-        });
-    }
-
-    @ReactMethod
-    public void videoIdentification(String groupId, String contentLanguage, String phrase, String path, final Callback callback){
-        File video = new File(path);
-        if (!video.exists()){
-            callback.invoke("File Doesn't exist: " + path);
-        } else {
-            myVoiceIt.videoIdentification(groupId, contentLanguage, phrase,video, new JsonHttpResponseHandler(){
-                @Override
-                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                    callback.invoke(response.toString());
-                }
-                @Override
-                public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                    if (errorResponse != null) {
-                        callback.invoke(errorResponse.toString());
-                    }
-                }
-            });
-        }
-    }
-
-    @ReactMethod
-    public void videoIdentificationByUrl(String groupId, String contentLanguage, String phrase, String url, final Callback callback){
-        myVoiceIt.videoIdentificationByUrl(groupId, contentLanguage, phrase,url, new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                callback.invoke(response.toString());
-            }
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                if (errorResponse != null) {
-                    callback.invoke(errorResponse.toString());
-                }
-            }
-        });
-    }
 }
