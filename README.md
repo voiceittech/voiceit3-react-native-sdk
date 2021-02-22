@@ -7,6 +7,30 @@
 
 `$ react-native link react-native-voiceit`
 
+### Local Installation 
+Firstly, to use the SDK locally, please clone the repo and drag it into your root React Native project. In the Package.json, replace to "react-native-voiceit": "file:./VoiceIt2-React-Native-SDK"
+
+## Android 
+Get the <a href="https://github.com/voiceittech/VoiceIt2-AndroidSDK#local-installation"> Android-SDK</a> locally by doing the following: 
+
+<ul>
+ <li> Clone the Android-SDK repo
+ <li> Open your main android project/folder in android studio, and navigate to File -> New -> Import Module
+ <li> Select the Android SDK repo that you just cloned. Check off the app module, only include the voiceit2 module
+ <li> Navigate to you local VoiceIt2-React-Native-SDK Folder
+ <li> In the android/build.gradle, add implementation project(path: ':voiceit2') under dependencies 
+</ul>
+
+## IOS
+
+Please navigate to the podfile of your main IOS folder, and replace to:
+```
+  pod 'react-native-voiceit', :path => '../VoiceIt2-React-Native-SDK'
+  pod "VoiceIt2-IosSDK", :path => './VoiceIt2-IosSDK'
+```
+
+
+
 ## Usage
 ```javascript
 import {NativeModules} from 'react-native';
