@@ -7,10 +7,10 @@
 
 `$ react-native link react-native-voiceit`
 
-### Local Installation 
+## Local Installation 
 Firstly, to use the SDK locally, please clone the repo and drag it into your root React Native project. In the Package.json, replace to "react-native-voiceit": "file:./VoiceIt2-React-Native-SDK"
 
-## Android 
+#### Android 
 Get the <a href="https://github.com/voiceittech/VoiceIt2-AndroidSDK#local-installation"> Android-SDK</a> locally by doing the following: 
 
 <ul>
@@ -21,7 +21,7 @@ Get the <a href="https://github.com/voiceittech/VoiceIt2-AndroidSDK#local-instal
  <li> In the android/build.gradle, add implementation project(path: ':voiceit2') under dependencies 
 </ul>
 
-## IOS
+#### IOS
 
 Please navigate to the podfile of your main IOS folder, and replace to:
 ```
