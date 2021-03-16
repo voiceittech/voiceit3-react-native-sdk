@@ -22,8 +22,8 @@ RCT_EXPORT_METHOD(encapsulatedFaceEnrollment:(NSString *)userId callback:(RCTRes
     dispatch_async(dispatch_get_main_queue(), ^(){
       [myVoiceit encapsulatedFaceEnrollUser: userId userEnrollmentsCancelled:^{
           callback(@[@"Cancelled"]);
-      } userEnrollmentsPassed:^{
-          callback(@[@"User successfully enrolled"]);
+      } userEnrollmentsPassed:^(NSString * jsonResponse){
+          callback(@[jsonResponse]);
       }];
     });
 
@@ -36,8 +36,8 @@ voicePrintPhrase:(NSString*)voicePrintPhrase callback:(RCTResponseSenderBlock)ca
     [myVoiceit encapsulatedVideoEnrollUser: userId contentLanguage: contentLanguage
     voicePrintPhrase: voicePrintPhrase userEnrollmentsCancelled:^{
         callback(@[@"Cancelled"]);
-    } userEnrollmentsPassed:^{
-        callback(@[@"User successfully enrolled"]);
+    } userEnrollmentsPassed:^(NSString * jsonResponse){
+        callback(@[jsonResponse]);
     }];
     });
 }
@@ -49,8 +49,8 @@ voicePrintPhrase:(NSString*)voicePrintPhrase callback:(RCTResponseSenderBlock)ca
     [myVoiceit encapsulatedVoiceEnrollUser: userId contentLanguage: contentLanguage
    voicePrintPhrase: voicePrintPhrase userEnrollmentsCancelled:^{
         callback(@[@"Cancelled"]);
-    } userEnrollmentsPassed:^{
-        callback(@[@"User successfully enrolled"]);
+    } userEnrollmentsPassed:^(NSString * jsonResponse){
+        callback(@[jsonResponse]);
     }];
         });
 }
@@ -119,49 +119,49 @@ callback:(RCTResponseSenderBlock)callback)
 }
 
 RCT_EXPORT_METHOD(getAllUsers:(RCTResponseSenderBlock)callback) {
-    [myVoiceit getAllUsers:^(NSString *jsonResponse) {
+    [myVoiceit getAllUsers:^(NSString *jsonResponse, NSInteger *statusCode) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(createUser:(RCTResponseSenderBlock)callback) {
-    [myVoiceit createUser:^(NSString *jsonResponse) {
+    [myVoiceit createUser:^(NSString *jsonResponse, NSInteger *statusCode) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(checkUserExists:(NSString *)userId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit checkUserExists:userId callback:^(NSString *jsonResponse) {
+    [myVoiceit checkUserExists:userId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(getGroupsForUser:(NSString *)userId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit getGroupsForUser:userId callback:^(NSString *jsonResponse) {
+    [myVoiceit getGroupsForUser:userId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(deleteUser:(NSString *) userId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit deleteUser:userId callback:^(NSString *jsonResponse) {
+    [myVoiceit deleteUser:userId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(getAllGroups:(RCTResponseSenderBlock)callback) {
-    [myVoiceit getAllGroups:^(NSString *jsonResponse) {
+    [myVoiceit getAllGroups:^(NSString *jsonResponse,NSInteger *statusCode) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(getGroup:(NSString *) groupId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit getGroup:groupId callback:^(NSString *jsonResponse) {
+    [myVoiceit getGroup:groupId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(groupExists:(NSString *) groupId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit groupExists:groupId callback:^(NSString *jsonResponse) {
+    [myVoiceit groupExists:groupId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
         callback(@[jsonResponse]);
     }];
 }
@@ -173,13 +173,13 @@ RCT_EXPORT_METHOD(createGroup:(NSString *) groupDescription callback:(RCTRespons
 }
 
 RCT_EXPORT_METHOD(addUserToGroup:(NSString *) groupId userId:(NSString *) userId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit addUserToGroup:groupId userId:userId callback:^(NSString *jsonResponse) {
+    [myVoiceit addUserToGroup:groupId userId:userId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(removeUserFromGroup:(NSString *) groupId userId:(NSString *) userId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit removeUserFromGroup:groupId userId:userId callback:^(NSString *jsonResponse) {
+    [myVoiceit removeUserFromGroup:groupId userId:userId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
         callback(@[jsonResponse]);
     }];
 
@@ -192,26 +192,22 @@ RCT_EXPORT_METHOD(deleteGroup:(NSString *) groupId callback:(RCTResponseSenderBl
 }
 
 RCT_EXPORT_METHOD(getAllVoiceEnrollments:(NSString *) userId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit getAllVoiceEnrollments:userId callback:^(NSString *jsonResponse) {
+    [myVoiceit getAllVoiceEnrollments:userId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(getAllFaceEnrollments:(NSString *) userId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit getAllFaceEnrollments:userId callback:^(NSString *jsonResponse) {
+    [myVoiceit getAllFaceEnrollments:userId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(getAllVideoEnrollments:(NSString *) userId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit getAllVideoEnrollments:userId callback:^(NSString *jsonResponse) {
+    [myVoiceit getAllVideoEnrollments:userId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
         callback(@[jsonResponse]);
     }];
 }
-
-
-
-
 
 
 @end
