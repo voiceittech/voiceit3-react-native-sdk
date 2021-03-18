@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency "React"
-  s.dependency "VoiceIt2-IosSDK", '~> 2.2.3'
+  s.dependency "VoiceIt2-IosSDK", '~> 2.2.5'
   # ...
   # s.dependency "..."
 end
