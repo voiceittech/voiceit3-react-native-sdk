@@ -119,49 +119,49 @@ callback:(RCTResponseSenderBlock)callback)
 }
 
 RCT_EXPORT_METHOD(getAllUsers:(RCTResponseSenderBlock)callback) {
-    [myVoiceit getAllUsers:^(NSString *jsonResponse, NSInteger *statusCode) {
+    [myVoiceit getAllUsers:^(NSString *jsonResponse) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(createUser:(RCTResponseSenderBlock)callback) {
-    [myVoiceit createUser:^(NSString *jsonResponse, NSInteger *statusCode) {
+    [myVoiceit createUser:^(NSString *jsonResponse) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(checkUserExists:(NSString *)userId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit checkUserExists:userId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
+    [myVoiceit checkUserExists:userId callback:^(NSString *jsonResponse) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(getGroupsForUser:(NSString *)userId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit getGroupsForUser:userId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
+    [myVoiceit getGroupsForUser:userId callback:^(NSString *jsonResponse) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(deleteUser:(NSString *) userId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit deleteUser:userId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
+    [myVoiceit deleteUser:userId callback:^(NSString *jsonResponse) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(getAllGroups:(RCTResponseSenderBlock)callback) {
-    [myVoiceit getAllGroups:^(NSString *jsonResponse,NSInteger *statusCode) {
+    [myVoiceit getAllGroups:^(NSString *jsonResponse) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(getGroup:(NSString *) groupId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit getGroup:groupId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
+    [myVoiceit getGroup:groupId callback:^(NSString *jsonResponse) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(groupExists:(NSString *) groupId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit groupExists:groupId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
+    [myVoiceit groupExists:groupId callback:^(NSString *jsonResponse) {
         callback(@[jsonResponse]);
     }];
 }
@@ -173,13 +173,13 @@ RCT_EXPORT_METHOD(createGroup:(NSString *) groupDescription callback:(RCTRespons
 }
 
 RCT_EXPORT_METHOD(addUserToGroup:(NSString *) groupId userId:(NSString *) userId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit addUserToGroup:groupId userId:userId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
+    [myVoiceit addUserToGroup:groupId userId:userId callback:^(NSString *jsonResponse) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(removeUserFromGroup:(NSString *) groupId userId:(NSString *) userId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit removeUserFromGroup:groupId userId:userId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
+    [myVoiceit removeUserFromGroup:groupId userId:userId callback:^(NSString *jsonResponse) {
         callback(@[jsonResponse]);
     }];
 
@@ -192,19 +192,19 @@ RCT_EXPORT_METHOD(deleteGroup:(NSString *) groupId callback:(RCTResponseSenderBl
 }
 
 RCT_EXPORT_METHOD(getAllVoiceEnrollments:(NSString *) userId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit getAllVoiceEnrollments:userId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
+    [myVoiceit getAllVoiceEnrollments:userId callback:^(NSString *jsonResponse) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(getAllFaceEnrollments:(NSString *) userId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit getAllFaceEnrollments:userId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
+    [myVoiceit getAllFaceEnrollments:userId callback:^(NSString *jsonResponse) {
         callback(@[jsonResponse]);
     }];
 }
 
 RCT_EXPORT_METHOD(getAllVideoEnrollments:(NSString *) userId callback:(RCTResponseSenderBlock)callback) {
-    [myVoiceit getAllVideoEnrollments:userId callback:^(NSString *jsonResponse, NSInteger *statusCode) {
+    [myVoiceit getAllVideoEnrollments:userId callback:^(NSString *jsonResponse) {
         callback(@[jsonResponse]);
     }];
 }
