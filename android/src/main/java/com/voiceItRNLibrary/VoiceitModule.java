@@ -32,6 +32,12 @@ public class VoiceitModule extends ReactContextBaseJavaModule {
         callback.invoke("Initialized");
     }
 
+    @ReactMethod
+    public void setNotificationURL(String notificationURL, final Callback callback){
+        myVoiceIt.setNotificationURL(notificationURL);
+        callback.invoke("Notification URL set!");
+    }
+
     //Encapsulated Methods
     @ReactMethod
     public void encapsulatedVoiceEnrollment(String userId, String contentLanguage, String phrase, final Callback callback){

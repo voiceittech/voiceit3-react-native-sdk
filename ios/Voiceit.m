@@ -17,6 +17,12 @@ RCT_EXPORT_METHOD(initVoiceIt:(NSString *)apiKey tokenParameter:(NSString *)apiT
     callback(@[@"Initialized"]);
 }
 
+RCT_EXPORT_METHOD(setNotificationURL:(NSString *)notificationURL callback:(RCTResponseSenderBlock)callback)
+{
+    [myVoiceit setNotificationURL:notificationURL];
+    callback(@[@"Notification URL set"]);
+}
+
 RCT_EXPORT_METHOD(encapsulatedFaceEnrollment:(NSString *)userId callback:(RCTResponseSenderBlock)callback)
 {
     dispatch_async(dispatch_get_main_queue(), ^(){
