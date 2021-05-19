@@ -84,9 +84,6 @@ const Voiceit = NativeModules.Voiceit;
 //  console.log(res);
 //  });
 ```
-  
-#### (For Android) Liveness Tutorial 
-The liveness tutorial can be disabled by calling the EncapsulatedVideoVerificationWithoutLivenes(...)/EncapsulatedFaceVerificationWithoutLivenes(...) method
 
 #### Functions
 Initialize the module as follows:
