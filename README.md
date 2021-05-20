@@ -9,6 +9,7 @@
   * [IOS](#ios)
 * [Usage](#usage)
 * [Funtions](#functions)
+* [User Token Initializing](#user-token)
 
 ## Getting started
 `$ npm install react-native-voiceit --save`
@@ -101,4 +102,13 @@ Please refer to the [The Android SDK](https://github.com/voiceittech/VoiceIt2-An
 voiceItModule.encapsulatedFaceVerification("USER_ID","CONTENT_LANGUAGE", LIVENESS_BOOLEAN, AUDIO_LIVENESS_BOOLEAN, (res)=>{
 callback(res);
 });
+```
+ 
+#### User Token 
+ To initialize Voiceit Module with User token and not use your API key and token, first generate a user token: https://api.voiceit.io/#user-token-generation
+ Initialize Voiceit by placing the generated user token in palce of the API Key, and leave the API token as blank: 
+```
+Voiceit.init("GENERATED_USER_TOKEN","",(res)=>{
+console.log(res);
+};
 ```
