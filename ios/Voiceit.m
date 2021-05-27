@@ -43,9 +43,9 @@ voicePrintPhrase:(NSString*)voicePrintPhrase successCallback:(RCTResponseSenderB
       dispatch_async(dispatch_get_main_queue(), ^(){
     [myVoiceit encapsulatedVideoEnrollUser: userId contentLanguage: contentLanguage
     voicePrintPhrase: voicePrintPhrase userEnrollmentsCancelled:^{
-        successCallback(@[@"Cancelled"]);
+        failureCallback(@[@"Cancelled"]);
     } userEnrollmentsPassed:^(NSString * jsonResponse){
-        failureCallback(@[jsonResponse]);
+        successCallback(@[jsonResponse]);
     }];
     });
 }
@@ -57,9 +57,9 @@ voicePrintPhrase:(NSString*)voicePrintPhrase successCallback:(RCTResponseSenderB
         dispatch_async(dispatch_get_main_queue(), ^(){
     [myVoiceit encapsulatedVoiceEnrollUser: userId contentLanguage: contentLanguage
    voicePrintPhrase: voicePrintPhrase userEnrollmentsCancelled:^{
-        successCallback(@[@"Cancelled"]);
+        failureCallback(@[@"Cancelled"]);
     } userEnrollmentsPassed:^(NSString * jsonResponse){
-        failureCallback(@[jsonResponse]);
+        successCallback(@[jsonResponse]);
     }];
         });
 }
