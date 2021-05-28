@@ -28,7 +28,7 @@ RCT_EXPORT_METHOD(encapsulatedFaceEnrollment:(NSString *)userId successCallback:
 {
     dispatch_async(dispatch_get_main_queue(), ^(){
       [myVoiceit encapsulatedFaceEnrollUser: userId userEnrollmentsCancelled:^{
-          failureCallback(@[@"Cancelled"]);
+          failureCallback(@[@"\"message\": \"User Enrollment Cancelled\""]);
       } userEnrollmentsPassed:^(NSString * jsonResponse){
           successCallback(@[jsonResponse]);
       }];
@@ -43,7 +43,7 @@ voicePrintPhrase:(NSString*)voicePrintPhrase successCallback:(RCTResponseSenderB
       dispatch_async(dispatch_get_main_queue(), ^(){
     [myVoiceit encapsulatedVideoEnrollUser: userId contentLanguage: contentLanguage
     voicePrintPhrase: voicePrintPhrase userEnrollmentsCancelled:^{
-        failureCallback(@[@"Cancelled"]);
+        failureCallback(@[@"\"message\": \"User Enrollment Cancelled\""]);
     } userEnrollmentsPassed:^(NSString * jsonResponse){
         successCallback(@[jsonResponse]);
     }];
@@ -57,7 +57,7 @@ voicePrintPhrase:(NSString*)voicePrintPhrase successCallback:(RCTResponseSenderB
         dispatch_async(dispatch_get_main_queue(), ^(){
     [myVoiceit encapsulatedVoiceEnrollUser: userId contentLanguage: contentLanguage
    voicePrintPhrase: voicePrintPhrase userEnrollmentsCancelled:^{
-        failureCallback(@[@"Cancelled"]);
+        failureCallback(@[@"\"message\": \"User Enrollment Cancelled\""]);
     } userEnrollmentsPassed:^(NSString * jsonResponse){
         successCallback(@[jsonResponse]);
     }];
@@ -69,15 +69,13 @@ RCT_EXPORT_METHOD(encapsulatedFaceVerification:(NSString *)userId
     doLivenessDetection:(BOOL)doLivenessDetection
     doAudioPrompts:(BOOL)doAudioPrompts
     successCallback:(RCTResponseSenderBlock)successCallback
-    failureCallback:(RCTResponseSenderBlock)failureCallback
-    cancelledCallback:(RCTResponseSenderBlock)cancelledCallback)
+    failureCallback:(RCTResponseSenderBlock)failureCallback)
 {
         dispatch_async(dispatch_get_main_queue(), ^(){
     [myVoiceit encapsulatedFaceVerification: userId doLivenessDetection: doLivenessDetection
                           doAudioPrompts: doAudioPrompts
                          contentLanguage: contentLanguage
     userVerificationCancelled:^{
-        cancelledCallback(@[@"User Verication Cancelled"]);
     }  userVerificationSuccessful:^(float faceConfidence, NSString * jsonResponse){
         successCallback(@[jsonResponse]);
     } userVerificationFailed:^(float faceConfidence, NSString * jsonResponse){
@@ -86,14 +84,14 @@ RCT_EXPORT_METHOD(encapsulatedFaceVerification:(NSString *)userId
     });
 }
 
+
 RCT_EXPORT_METHOD(encapsulatedVideoVerification:(NSString *)userId
   contentLanguage:(NSString*)contentLanguage
   voicePrintPhrase:(NSString*)voicePrintPhrase
 doLivenessDetection:(BOOL)doLivenessDetection
  doAudioPrompts:(BOOL)doAudioPrompts
 successCallback:(RCTResponseSenderBlock)successCallback
-failureCallback:(RCTResponseSenderBlock)failureCallback
-cancelledCallback:(RCTResponseSenderBlock)cancelledCallback)
+failureCallback:(RCTResponseSenderBlock)failureCallback)
 {
         dispatch_async(dispatch_get_main_queue(), ^(){
     [myVoiceit encapsulatedVideoVerification: userId
@@ -102,7 +100,6 @@ cancelledCallback:(RCTResponseSenderBlock)cancelledCallback)
    doLivenessDetection:doLivenessDetection
      doAudioPrompts:doAudioPrompts
     userVerificationCancelled:^{
-        cancelledCallback(@[@"User Verication Cancelled"]);
     }userVerificationSuccessful:^(float faceConfidence, float voiceConfidence, NSString * jsonResponse){
                        successCallback(@[jsonResponse]);
     } userVerificationFailed:^(float faceConfidence, float voiceConfidence, NSString * jsonResponse){
@@ -116,15 +113,13 @@ RCT_EXPORT_METHOD(encapsulatedVoiceVerification:(NSString *)userId
 contentLanguage:(NSString*)contentLanguage
 voicePrintPhrase:(NSString*)voicePrintPhrase
 successCallback:(RCTResponseSenderBlock)successCallback
-failureCallback:(RCTResponseSenderBlock)failureCallback
-cancelledCallback:(RCTResponseSenderBlock)cancelledCallback)
+failureCallback:(RCTResponseSenderBlock)failureCallback)
 {
     dispatch_async(dispatch_get_main_queue(), ^(){
     [myVoiceit encapsulatedVoiceVerification: userId
     contentLanguage:contentLanguage
      voicePrintPhrase:voicePrintPhrase
     userVerificationCancelled:^{
-        cancelledCallback(@[@"User Verication Cancelled"]);
     } userVerificationSuccessful:^(float voiceConfidence, NSString * jsonResponse){
         successCallback(@[jsonResponse]);
     } userVerificationFailed:^(float voiceConfidence, NSString * jsonResponse){
