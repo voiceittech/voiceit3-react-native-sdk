@@ -31,6 +31,13 @@ public class VoiceitModule extends ReactContextBaseJavaModule {
         myVoiceIt = new VoiceItAPI2(apiKey,apiToken);
         successCallback.invoke("Initialized");
     }
+    
+    @ReactMethod
+    public void initVoiceItWithTheme(String apiKey, String apiToken, String themeColor, final Callback successCallback){
+        myVoiceIt = new VoiceItAPI2(apiKey,apiToken, Color.parseColor(themeColor));
+        successCallback.invoke("Initialized");
+    }
+
 
     @ReactMethod
     public void setNotificationURL(String notificationURL, final Callback successCallback){
