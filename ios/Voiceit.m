@@ -17,6 +17,19 @@ RCT_EXPORT_METHOD(initVoiceIt:(NSString *)apiKey tokenParameter:(NSString *)apiT
     successCallback(@[@"Initialized"]);
 }
 
+RCT_EXPORT_METHOD(initVoiceIt:(NSString *)apiKey tokenParameter:(NSString *)apiToken
+    themeColorParameter:(NSString *) themeColor successCallback:(RCTResponseSenderBlock)successCallback)
+{
+    UIViewController *presentedViewController = RCTPresentedViewController();
+    // get the root view of the app and then pass it
+    NSMutableDictionary * styles = [[NSMutableDictionary alloc] init];
+    [styles setObject:themeColor forKey:@"kThemeColor"];
+    [styles setObject:@"default" forKey:@"kIconStyle"];
+    
+    myVoiceit = [[VoiceItAPITwo alloc] init: presentedViewController apiKey:apiKey apiToken:apiToken styles: styles];
+    successCallback(@[@"Initialized"]);
+}
+
 RCT_EXPORT_METHOD(setNotificationURL:(NSString *)notificationURL successCallback:(RCTResponseSenderBlock)successCallback)
 {
     [myVoiceit setNotificationURL:notificationURL];
