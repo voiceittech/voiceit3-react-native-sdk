@@ -9,6 +9,7 @@ import com.voiceit.voiceit2.VoiceItAPI2;
 import org.json.JSONObject;
 import java.io.File;
 import cz.msebera.android.httpclient.Header;
+import android.graphics.Color;
 
 
 public class VoiceitModule extends ReactContextBaseJavaModule {
@@ -31,7 +32,7 @@ public class VoiceitModule extends ReactContextBaseJavaModule {
         myVoiceIt = new VoiceItAPI2(apiKey,apiToken);
         successCallback.invoke("Initialized");
     }
-    
+
     @ReactMethod
     public void initVoiceItWithTheme(String apiKey, String apiToken, String themeColor, final Callback successCallback){
         myVoiceIt = new VoiceItAPI2(apiKey,apiToken, Color.parseColor(themeColor));
