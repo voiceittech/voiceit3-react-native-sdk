@@ -17,7 +17,7 @@ RCT_EXPORT_METHOD(initVoiceIt:(NSString *)apiKey tokenParameter:(NSString *)apiT
     successCallback(@[@"Initialized"]);
 }
 
-RCT_EXPORT_METHOD(initVoiceIt:(NSString *)apiKey tokenParameter:(NSString *)apiToken
+RCT_EXPORT_METHOD(initVoiceItWithTheme:(NSString *)apiKey tokenParameter:(NSString *)apiToken
     themeColorParameter:(NSString *) themeColor successCallback:(RCTResponseSenderBlock)successCallback)
 {
     UIViewController *presentedViewController = RCTPresentedViewController();
