@@ -117,7 +117,7 @@ console.log(res);
  #### Theme
  To set a theme color, please initialize the voiceit Object as follows:
  ```
-Voiceit.initVoiceItWithTheme("API_KEY","API_TOKEN", "HEX_COLOR_VALUE"(res)=>{
+Voiceit.initVoiceItWithTheme("API_KEY","API_TOKEN", "HEX_COLOR_VALUE",(res)=>{
 console.log(res);
 };
  ```
