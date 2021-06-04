@@ -10,6 +10,7 @@
 * [Usage](#usage)
 * [Funtions](#functions)
 * [User Token Initializing](#user-token)
+* [Theme Color](#theme)
 
 ## Getting started
 `$ npm install react-native-voiceit --save`
@@ -91,7 +92,7 @@ Initialize the module as follows:
 ```
 import {NativeModules} from 'react-native';
 const Voiceit = NativeModules.Voiceit;
-Voiceit.init("API_KEY","API_TOKEN",(res)=>{
+Voiceit.initVoiceIt("API_KEY","API_TOKEN",(res)=>{
 console.log(res);
 };
 ```
@@ -108,7 +109,17 @@ callback(res);
  To initialize Voiceit Module with User token and not use your API key and token, first generate a user token: https://api.voiceit.io/#user-token-generation
  Initialize Voiceit by placing the generated user token in palce of the API Key, and leave the API token as blank: 
 ```
-Voiceit.init("GENERATED_USER_TOKEN","",(res)=>{
+Voiceit.initVoiceIt("GENERATED_USER_TOKEN","",(res)=>{
 console.log(res);
 };
 ```
+ 
+ #### Theme
+ To set a theme color, please initialize the voiceit Object as follows:
+ ```
+import {NativeModules} from 'react-native';
+const Voiceit = NativeModules.Voiceit;
+Voiceit.initVoiceItWithTheme("API_KEY","API_TOKEN", "HEX_COLOR_VALUE"(res)=>{
+console.log(res);
+};
+ ```
