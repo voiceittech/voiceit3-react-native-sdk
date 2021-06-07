@@ -122,7 +122,7 @@ console.log(res);
 };
  ```
  
- For instance: 
+ Example: 
  ```
 Voiceit.initVoiceItWithTheme("key_...","tok_.....", "#fbc132",(res)=>{
 console.log(res);
