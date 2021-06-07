@@ -121,3 +121,11 @@ Voiceit.initVoiceItWithTheme("API_KEY","API_TOKEN", "HEX_COLOR_VALUE",(res)=>{
 console.log(res);
 };
  ```
+ 
+ For instance: 
+ ```
+Voiceit.initVoiceItWithTheme("key_...","tok_.....", "#fbc132",(res)=>{
+console.log(res);
+};
+ ```
+
