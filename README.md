@@ -58,7 +58,11 @@ Get the <a href="https://github.com/voiceittech/VoiceIt2-AndroidSDK#local-instal
  <li> Open your main android project/folder in android studio, and navigate to File -> New -> Import Module
  <li> Select the Android SDK repo that you just cloned. Check off the app module, only include the voiceit2 module
  <li> Navigate to you local VoiceIt2-React-Native-SDK Folder
- <li> In the android/build.gradle, add implementation project(path: ':voiceit2') under dependencies 
+ <li> In the android/build.gradle, add 
+  ```
+  implementation project(path: ':voiceit2')
+  ```
+  under dependencies 
 </ul>
 
 #### IOS
