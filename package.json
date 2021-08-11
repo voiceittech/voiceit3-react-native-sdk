@@ -1,7 +1,7 @@
 {
   "name": "react-native-voiceit",
   "title": "React Native Voiceit",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Voiceit's React Native SDK",
   "main": "index.js",
   "files": [
