@@ -25,7 +25,7 @@ RCT_EXPORT_METHOD(initVoiceItWithTheme:(NSString *)apiKey tokenParameter:(NSStri
     NSMutableDictionary * styles = [[NSMutableDictionary alloc] init];
     [styles setObject:themeColor forKey:@"kThemeColor"];
     [styles setObject:@"default" forKey:@"kIconStyle"];
-    
+
     myVoiceit = [[VoiceItAPITwo alloc] init: presentedViewController apiKey:apiKey apiToken:apiToken styles: styles];
     successCallback(@[@"Initialized"]);
 }
@@ -36,11 +36,11 @@ RCT_EXPORT_METHOD(setNotificationURL:(NSString *)notificationURL successCallback
     successCallback(@[@"Notification URL set"]);
 }
 
-RCT_EXPORT_METHOD(encapsulatedFaceEnrollment:(NSString *)userId successCallback:(RCTResponseSenderBlock)successCallback
+RCT_EXPORT_METHOD(encapsulatedFaceEnrollment:(NSString *)userId contentLanguage:(NSString*)contentLanguage successCallback:(RCTResponseSenderBlock)successCallback
     failureCallback:(RCTResponseSenderBlock)failureCallback)
 {
     dispatch_async(dispatch_get_main_queue(), ^(){
-      [myVoiceit encapsulatedFaceEnrollUser: userId userEnrollmentsCancelled:^{
+      [myVoiceit encapsulatedFaceEnrollUser: userId contentLanguage: contentLanguage userEnrollmentsCancelled:^{
           failureCallback(@[@"\"message\": \"User Enrollment Cancelled\""]);
       } userEnrollmentsPassed:^(NSString * jsonResponse){
           successCallback(@[jsonResponse]);
