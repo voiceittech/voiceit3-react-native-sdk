@@ -96,7 +96,7 @@ public class VoiceitModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void encapsulatedFaceEnrollment(String userId,final Callback successCallback, final Callback failureCallback){
+    public void encapsulatedFaceEnrollment(String userId, String contentLanguage, final Callback successCallback, final Callback failureCallback){
         myVoiceIt.encapsulatedFaceEnrollment(getCurrentActivity(), userId, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
