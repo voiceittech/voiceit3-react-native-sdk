@@ -28,8 +28,14 @@ public class VoiceitModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void initVoiceIt(String apiKey, String apiToken, final Callback successCallback){
-        myVoiceIt = new VoiceItAPI2(apiKey,apiToken);
+    public void initVoiceIt(String apiKey, String apiToken, String baseUrl, final Callback successCallback){
+        myVoiceIt = new VoiceItAPI2(apiKey, apiToken, baseUrl);
+        successCallback.invoke("Initialized");
+    }
+
+    @ReactMethod
+    public void initVoiceIt(String apiKey, String apiToken, String host, final Callback successCallback){
+        myVoiceIt = new VoiceItAPI2(apiKey, apiToken, host);
         successCallback.invoke("Initialized");
     }
 
@@ -39,6 +45,12 @@ public class VoiceitModule extends ReactContextBaseJavaModule {
         successCallback.invoke("Initialized");
     }
 
+    @ReactMethod
+    public void initVoiceItWithTheme(String apiKey, String apiToken, String themeColor, String host, final Callback successCallback){
+        myVoiceIt = new VoiceItAPI2(apiKey, apiToken, Color.parseColor(themeColor), host);
+		myVoiceIt.setURL(baseUrl);
+        successCallback.invoke("Initialized");
+    }
 
     @ReactMethod
     public void setNotificationURL(String notificationURL, final Callback successCallback){
