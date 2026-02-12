@@ -48,16 +48,16 @@ For IOS, please make sure your project has Camera and Microphone permissions in 
 `$ react-native link react-native-voiceit`
 
 ## Local Installation 
-Firstly, to use the SDK locally, please clone the repo and drag it into your root React Native project. In the Package.json, replace to "react-native-voiceit": "file:./VoiceIt2-React-Native-SDK"
+Firstly, to use the SDK locally, please clone the repo and drag it into your root React Native project. In the Package.json, replace to "react-native-voiceit": "file:./VoiceIt3-React-Native-SDK"
 
 #### Android 
-Get the <a href="https://github.com/voiceittech/VoiceIt2-AndroidSDK#local-installation"> Android-SDK</a> locally by doing the following: 
+Get the <a href="https://github.com/voiceittech/VoiceIt3-AndroidSDK#local-installation"> Android-SDK</a> locally by doing the following: 
 
 <ul>
  <li> Clone the Android-SDK repo
  <li> Open your main android project/folder in android studio, and navigate to File -> New -> Import Module
  <li> Select the Android SDK repo that you just cloned. Check off the app module, only include the voiceit2 module
- <li> Navigate to you local VoiceIt2-React-Native-SDK Folder
+ <li> Navigate to you local VoiceIt3-React-Native-SDK Folder
  <li> In the android/build.gradle, add 
   ```
   implementation project(path: ':voiceit2')
@@ -69,8 +69,8 @@ Get the <a href="https://github.com/voiceittech/VoiceIt2-AndroidSDK#local-instal
 
 Please navigate to the podfile of your main IOS folder, and replace to:
 ```
-  pod 'react-native-voiceit', :path => '../VoiceIt2-React-Native-SDK'
-  pod "VoiceIt2-IosSDK", :path => './VoiceIt2-IosSDK'
+  pod 'react-native-voiceit', :path => '../VoiceIt3-React-Native-SDK'
+  pod "VoiceIt3-IosSDK", :path => './VoiceIt3-IosSDK'
 ```
 
 
@@ -101,7 +101,7 @@ console.log(res);
 };
 ```
 The React Native SDK wraps the IOS and Android SDKs, and hence the methods exposed are the same as those.
-Please refer to the [The Android SDK](https://github.com/voiceittech/VoiceIt2-AndroidSDK)/[The IOS SDK](https://github.com/voiceittech/VoiceIt2-IosSDK) for complete method reference. For instance
+Please refer to the [The Android SDK](https://github.com/voiceittech/VoiceIt3-AndroidSDK)/[The IOS SDK](https://github.com/voiceittech/VoiceIt3-IosSDK) for complete method reference. For instance
 
 ```
 voiceItModule.encapsulatedFaceVerification("USER_ID","CONTENT_LANGUAGE", LIVENESS_BOOLEAN, AUDIO_LIVENESS_BOOLEAN, (res)=>{
