@@ -1,13 +1,14 @@
 {
   "name": "react-native-voiceit",
   "title": "React Native Voiceit",
-  "version": "1.3.3",
+  "version": "2.0.0",
   "description": "Voiceit's React Native SDK",
   "main": "index.js",
   "files": [
     "README.md",
     "android",
     "index.js",
+    "src/",
     "ios",
     "react-native-voiceit.podspec"
   ],

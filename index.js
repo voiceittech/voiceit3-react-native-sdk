@@ -1,5 +1,7 @@
+import VoiceItAPI from './src/VoiceItAPI';
 import { NativeModules } from 'react-native';
 
-const { Voiceit } = NativeModules;
+const { Voiceit: VoiceItNative } = NativeModules;
 
-export default Voiceit;
+export { VoiceItAPI, VoiceItNative };
+export default VoiceItAPI;
