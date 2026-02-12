@@ -75,7 +75,7 @@ repositories {
 
 dependencies {
     //noinspection GradleDynamicVersion
-    implementation 'com.github.voiceittech:VoiceItApi2AndroidSDK:2.3.2'
+    implementation 'com.github.voiceittech:VoiceItApi3AndroidSDK:2.3.2'
     implementation 'com.facebook.react:react-native:+'  // From node_modules
 }
 
