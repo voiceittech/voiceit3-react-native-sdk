@@ -124,8 +124,8 @@ public class VoiceitModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void encapsulatedFaceVerification(String userId, String contentLanguage, Boolean liveness, Boolean audioLiveness, final Callback successCallback, final Callback failureCallback){
-        myVoiceIt.encapsulatedFaceVerification(getCurrentActivity(), userId, contentLanguage, liveness, audioLiveness,new JsonHttpResponseHandler(){
+    public void encapsulatedFaceVerification(String userId, String contentLanguage, final Callback successCallback, final Callback failureCallback){
+        myVoiceIt.encapsulatedFaceVerification(getCurrentActivity(), userId, contentLanguage, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 successCallback.invoke(response.toString());
@@ -156,8 +156,8 @@ public class VoiceitModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void encapsulatedVideoVerification(String userId, String contentLanguage, String phrase, Boolean liveness, Boolean audioLiveness, final Callback successCallback, final Callback failureCallback){
-        myVoiceIt.encapsulatedVideoVerification(getCurrentActivity(),userId,contentLanguage,phrase,liveness, audioLiveness, new JsonHttpResponseHandler(){
+    public void encapsulatedVideoVerification(String userId, String contentLanguage, String phrase, final Callback successCallback, final Callback failureCallback){
+        myVoiceIt.encapsulatedVideoVerification(getCurrentActivity(),userId,contentLanguage,phrase, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 successCallback.invoke(response.toString());
