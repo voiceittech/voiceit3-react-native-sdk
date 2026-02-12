@@ -16,8 +16,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/voiceittech/VoiceIt2-React-Native-SDK",
-    "baseUrl": "https://github.com/voiceittech/VoiceIt2-React-Native-SDK"
+    "url": "git+https://github.com/voiceittech/VoiceIt3-React-Native-SDK",
+    "baseUrl": "https://github.com/voiceittech/VoiceIt3-React-Native-SDK"
   },
   "keywords": [
     "react-native"
