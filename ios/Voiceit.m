@@ -79,14 +79,11 @@ voicePrintPhrase:(NSString*)voicePrintPhrase successCallback:(RCTResponseSenderB
 
 RCT_EXPORT_METHOD(encapsulatedFaceVerification:(NSString *)userId
     contentLanguage:(NSString *) contentLanguage
-    doLivenessDetection:(BOOL)doLivenessDetection
-    doAudioPrompts:(BOOL)doAudioPrompts
     successCallback:(RCTResponseSenderBlock)successCallback
     failureCallback:(RCTResponseSenderBlock)failureCallback)
 {
         dispatch_async(dispatch_get_main_queue(), ^(){
-    [myVoiceit encapsulatedFaceVerification: userId doLivenessDetection: doLivenessDetection
-                          doAudioPrompts: doAudioPrompts
+    [myVoiceit encapsulatedFaceVerification: userId
                          contentLanguage: contentLanguage
     userVerificationCancelled:^{
     }  userVerificationSuccessful:^(float faceConfidence, NSString * jsonResponse){
@@ -101,8 +98,6 @@ RCT_EXPORT_METHOD(encapsulatedFaceVerification:(NSString *)userId
 RCT_EXPORT_METHOD(encapsulatedVideoVerification:(NSString *)userId
   contentLanguage:(NSString*)contentLanguage
   voicePrintPhrase:(NSString*)voicePrintPhrase
-doLivenessDetection:(BOOL)doLivenessDetection
- doAudioPrompts:(BOOL)doAudioPrompts
 successCallback:(RCTResponseSenderBlock)successCallback
 failureCallback:(RCTResponseSenderBlock)failureCallback)
 {
@@ -110,8 +105,6 @@ failureCallback:(RCTResponseSenderBlock)failureCallback)
     [myVoiceit encapsulatedVideoVerification: userId
     contentLanguage:contentLanguage
    voicePrintPhrase:voicePrintPhrase
-   doLivenessDetection:doLivenessDetection
-     doAudioPrompts:doAudioPrompts
     userVerificationCancelled:^{
     }userVerificationSuccessful:^(float faceConfidence, float voiceConfidence, NSString * jsonResponse){
                        successCallback(@[jsonResponse]);
