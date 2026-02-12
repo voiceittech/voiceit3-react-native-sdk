@@ -56,11 +56,11 @@ Get the <a href="https://github.com/voiceittech/VoiceIt3-AndroidSDK#local-instal
 <ul>
  <li> Clone the Android-SDK repo
  <li> Open your main android project/folder in android studio, and navigate to File -> New -> Import Module
- <li> Select the Android SDK repo that you just cloned. Check off the app module, only include the voiceit2 module
+ <li> Select the Android SDK repo that you just cloned. Check off the app module, only include the voiceit3 module
  <li> Navigate to you local VoiceIt3-React-Native-SDK Folder
  <li> In the android/build.gradle, add 
   ```
-  implementation project(path: ':voiceit2')
+  implementation project(path: ':voiceit3')
   ```
   under dependencies 
 </ul>

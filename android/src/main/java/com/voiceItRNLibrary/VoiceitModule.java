@@ -5,7 +5,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
-import com.voiceit.voiceit2.VoiceItAPI2;
+import com.voiceit.voiceit3.VoiceItAPI3;
 import org.json.JSONObject;
 import java.io.File;
 import cz.msebera.android.httpclient.Header;
@@ -15,7 +15,7 @@ import android.graphics.Color;
 public class VoiceitModule extends ReactContextBaseJavaModule {
 
     private final ReactApplicationContext reactContext;
-    private VoiceItAPI2 myVoiceIt;
+    private VoiceItAPI3 myVoiceIt;
 
     public VoiceitModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -29,25 +29,25 @@ public class VoiceitModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void initVoiceIt(String apiKey, String apiToken, String baseUrl, final Callback successCallback){
-        myVoiceIt = new VoiceItAPI2(apiKey, apiToken, baseUrl);
+        myVoiceIt = new VoiceItAPI3(apiKey, apiToken, baseUrl);
         successCallback.invoke("Initialized");
     }
 
     @ReactMethod
     public void initVoiceIt(String apiKey, String apiToken, String host, final Callback successCallback){
-        myVoiceIt = new VoiceItAPI2(apiKey, apiToken, host);
+        myVoiceIt = new VoiceItAPI3(apiKey, apiToken, host);
         successCallback.invoke("Initialized");
     }
 
     @ReactMethod
     public void initVoiceItWithTheme(String apiKey, String apiToken, String themeColor, final Callback successCallback){
-        myVoiceIt = new VoiceItAPI2(apiKey,apiToken, Color.parseColor(themeColor));
+        myVoiceIt = new VoiceItAPI3(apiKey,apiToken, Color.parseColor(themeColor));
         successCallback.invoke("Initialized");
     }
 
     @ReactMethod
     public void initVoiceItWithTheme(String apiKey, String apiToken, String themeColor, String host, final Callback successCallback){
-        myVoiceIt = new VoiceItAPI2(apiKey, apiToken, Color.parseColor(themeColor), host);
+        myVoiceIt = new VoiceItAPI3(apiKey, apiToken, Color.parseColor(themeColor), host);
 		myVoiceIt.setURL(baseUrl);
         successCallback.invoke("Initialized");
     }

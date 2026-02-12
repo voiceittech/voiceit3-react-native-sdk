@@ -1,11 +1,11 @@
 #import "Voiceit.h"
-#import "VoiceItAPITwo.h"
+#import "VoiceItAPIThree.h"
 #import "React/RCTUtils.h"
 
 
 @implementation Voiceit
 
-VoiceItAPITwo *myVoiceit;
+VoiceItAPIThree *myVoiceit;
 
 RCT_EXPORT_MODULE()
 
@@ -13,7 +13,7 @@ RCT_EXPORT_METHOD(initVoiceIt:(NSString *)apiKey tokenParameter:(NSString *)apiT
 {
     UIViewController *presentedViewController = RCTPresentedViewController();
     // get the root view of the app and then pass it
-    myVoiceit = [[VoiceItAPITwo alloc] init: presentedViewController apiKey:apiKey apiToken:apiToken];
+    myVoiceit = [[VoiceItAPIThree alloc] init: presentedViewController apiKey:apiKey apiToken:apiToken];
     successCallback(@[@"Initialized"]);
 }
 
@@ -26,7 +26,7 @@ RCT_EXPORT_METHOD(initVoiceItWithTheme:(NSString *)apiKey tokenParameter:(NSStri
     [styles setObject:themeColor forKey:@"kThemeColor"];
     [styles setObject:@"default" forKey:@"kIconStyle"];
 
-    myVoiceit = [[VoiceItAPITwo alloc] init: presentedViewController apiKey:apiKey apiToken:apiToken styles: styles];
+    myVoiceit = [[VoiceItAPIThree alloc] init: presentedViewController apiKey:apiKey apiToken:apiToken styles: styles];
     successCallback(@[@"Initialized"]);
 }
 
