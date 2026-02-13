@@ -13,7 +13,7 @@ import android.graphics.Color;
 
 public class VoiceitModule extends ReactContextBaseJavaModule {
 
-    private static final String BASE_URL = "https://api.voiceit.io";
+    private static final String BASE_URL = "https://qpi.voiceit.io";
     private final ReactApplicationContext reactContext;
     private VoiceItAPI3 myVoiceIt;
 
