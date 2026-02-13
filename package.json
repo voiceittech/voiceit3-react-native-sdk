@@ -1,6 +1,6 @@
 {
-  "name": "react-native-voiceit",
-  "title": "React Native Voiceit",
+  "name": "voiceit3-react-native",
+  "title": "VoiceIt3 React Native SDK",
   "version": "2.0.0",
   "description": "Voiceit's React Native SDK",
   "main": "index.js",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/voiceittech/VoiceIt3-React-Native-SDK",
+    "url": "git+https://github.com/voiceittech/VoiceIt3-React-Native-SDK.git",
     "baseUrl": "https://github.com/voiceittech/VoiceIt3-React-Native-SDK"
   },
   "keywords": [

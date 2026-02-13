@@ -1,4 +1,4 @@
-# react-native-voiceit
+# voiceit3-react-native
 
 VoiceIt's React Native SDK v2.0 — a hybrid architecture with a **pure JS HTTP client** for CRUD operations and **native modules** for encapsulated biometric capture UI (camera/mic).
 
@@ -14,13 +14,13 @@ VoiceIt's React Native SDK v2.0 — a hybrid architecture with a **pure JS HTTP 
 ## Getting Started
 
 ```
-npm install react-native-voiceit --save
+npm install voiceit3-react-native --save
 ```
 
 ## Requirements
 
 ### iOS
-- Minimum Deployment Target: iOS 11
+- Minimum Deployment Target: iOS 15.1
 - Camera and Microphone permissions in `Info.plist`:
 ```xml
 <key>NSCameraUsageDescription</key>
@@ -32,9 +32,9 @@ npm install react-native-voiceit --save
 ```
 
 ### Android
-- Minimum SDK version 17 in `build.gradle`:
+- Minimum SDK version 24 in `build.gradle`:
 ```
-minSdkVersion: 17
+minSdkVersion: 24
 ```
 
 ### Billing
@@ -46,14 +46,14 @@ Review your Voiceprint Phrases at: https://voiceit.io/phraseManagement
 ## Installation
 
 ```
-npm install react-native-voiceit --save
+npm install voiceit3-react-native --save
 cd ios && pod install
 ```
 
 ## Usage
 
 ```javascript
-import VoiceItAPI, { VoiceItNative } from 'react-native-voiceit';
+import VoiceItAPI, { VoiceItNative } from 'voiceit3-react-native';
 ```
 
 ### JS API Client
