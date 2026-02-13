@@ -9,20 +9,15 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   react-native-voiceit
                    DESC
-  s.homepage     = "https://github.com/github_account/react-native-voiceit"
-  # brief license entry:
+  s.homepage     = "https://github.com/voiceittech/VoiceIt3-React-Native-SDK"
   s.license      = "MIT"
-  # optional - use expanded license entry instead:
-  # s.license    = { :type => "MIT", :file => "LICENSE" }
-  s.authors      = { "Your Name" => "yourname@email.com" }
-  s.platforms    = { :ios => "11.0" }
-  s.source       = { :git => "https://github.com/github_account/react-native-voiceit.git", :tag => "#{s.version}" }
+  s.authors      = { "VoiceIt Technologies" => "hassan@voiceit.io" }
+  s.platforms    = { :ios => "15.1" }
+  s.source       = { :git => "https://github.com/voiceittech/VoiceIt3-React-Native-SDK.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,c,m,swift}"
   s.requires_arc = true
 
   s.dependency "React-Core"
   s.dependency "VoiceIt3-IosSDK", '~> 2.3.1'
-  # ...
-  # s.dependency "..."
 end
