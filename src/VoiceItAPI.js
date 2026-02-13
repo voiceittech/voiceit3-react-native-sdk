@@ -1,4 +1,4 @@
-const BASE_URL = 'https://qpi.voiceit.io';
+const BASE_URL = 'https://api.voiceit.io';
 
 class VoiceItAPI {
   constructor(apiKey, authToken) {
