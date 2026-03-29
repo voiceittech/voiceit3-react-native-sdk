@@ -53,7 +53,7 @@ cd ios && pod install
 ## Usage
 
 ```javascript
-import VoiceItAPI, { VoiceItNative } from 'voiceit3-react-native';
+import VoiceItAPI, { VoiceItNative } from '@voiceittech/voiceit3-react-native';
 ```
 
 ### JS API Client
