@@ -172,21 +172,15 @@ class VoiceItAPI {
 
   // ─── Face Enrollment ────────────────────────────────────────────────
 
-  createFaceEnrollment(userId, { photo, video, liveness, livenessThreshold } = {}) {
     const form = new FormData();
     form.append('userId', userId);
     if (photo) form.append('photo', photo);
     if (video) form.append('video', video);
     const headers = {};
-    if (liveness !== undefined) headers['X-Require-Liveness'] = String(liveness);
-    if (livenessThreshold !== undefined) headers['X-Liveness-Threshold'] = String(livenessThreshold);
     return this._request('POST', '/enrollments/face', { body: form, headers });
   }
 
-  createFaceEnrollmentByUrl(userId, fileUrl, { liveness, livenessThreshold } = {}) {
     const headers = {};
-    if (liveness !== undefined) headers['X-Require-Liveness'] = String(liveness);
-    if (livenessThreshold !== undefined) headers['X-Liveness-Threshold'] = String(livenessThreshold);
     return this._request('POST', '/enrollments/face/byUrl', {
       query: { userId, fileUrl },
       headers,
@@ -195,22 +189,16 @@ class VoiceItAPI {
 
   // ─── Video Enrollment ───────────────────────────────────────────────
 
-  createVideoEnrollment(userId, contentLanguage, phrase, video, { liveness, livenessThreshold } = {}) {
     const form = new FormData();
     form.append('userId', userId);
     form.append('contentLanguage', contentLanguage);
     form.append('phrase', phrase);
     form.append('video', video);
     const headers = {};
-    if (liveness !== undefined) headers['X-Require-Liveness'] = String(liveness);
-    if (livenessThreshold !== undefined) headers['X-Liveness-Threshold'] = String(livenessThreshold);
     return this._request('POST', '/enrollments/video', { body: form, headers });
   }
 
-  createVideoEnrollmentByUrl(userId, contentLanguage, phrase, fileUrl, { liveness, livenessThreshold } = {}) {
     const headers = {};
-    if (liveness !== undefined) headers['X-Require-Liveness'] = String(liveness);
-    if (livenessThreshold !== undefined) headers['X-Liveness-Threshold'] = String(livenessThreshold);
     return this._request('POST', '/enrollments/video/byUrl', {
       query: { userId, contentLanguage, phrase, fileUrl },
       headers,
@@ -236,21 +224,15 @@ class VoiceItAPI {
 
   // ─── Face Verification ──────────────────────────────────────────────
 
-  faceVerification(userId, { photo, video, liveness, livenessThreshold } = {}) {
     const form = new FormData();
     form.append('userId', userId);
     if (photo) form.append('photo', photo);
     if (video) form.append('video', video);
     const headers = {};
-    if (liveness !== undefined) headers['X-Require-Liveness'] = String(liveness);
-    if (livenessThreshold !== undefined) headers['X-Liveness-Threshold'] = String(livenessThreshold);
     return this._request('POST', '/verification/face', { body: form, headers });
   }
 
-  faceVerificationByUrl(userId, fileUrl, { liveness, livenessThreshold } = {}) {
     const headers = {};
-    if (liveness !== undefined) headers['X-Require-Liveness'] = String(liveness);
-    if (livenessThreshold !== undefined) headers['X-Liveness-Threshold'] = String(livenessThreshold);
     return this._request('POST', '/verification/face/byUrl', {
       query: { userId, fileUrl },
       headers,
@@ -259,22 +241,16 @@ class VoiceItAPI {
 
   // ─── Video Verification ─────────────────────────────────────────────
 
-  videoVerification(userId, contentLanguage, phrase, video, { liveness, livenessThreshold } = {}) {
     const form = new FormData();
     form.append('userId', userId);
     form.append('contentLanguage', contentLanguage);
     form.append('phrase', phrase);
     form.append('video', video);
     const headers = {};
-    if (liveness !== undefined) headers['X-Require-Liveness'] = String(liveness);
-    if (livenessThreshold !== undefined) headers['X-Liveness-Threshold'] = String(livenessThreshold);
     return this._request('POST', '/verification/video', { body: form, headers });
   }
 
-  videoVerificationByUrl(userId, contentLanguage, phrase, fileUrl, { liveness, livenessThreshold } = {}) {
     const headers = {};
-    if (liveness !== undefined) headers['X-Require-Liveness'] = String(liveness);
-    if (livenessThreshold !== undefined) headers['X-Liveness-Threshold'] = String(livenessThreshold);
     return this._request('POST', '/verification/video/byUrl', {
       query: { userId, contentLanguage, phrase, fileUrl },
       headers,

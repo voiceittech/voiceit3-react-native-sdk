@@ -14,7 +14,7 @@ VoiceIt's React Native SDK v2.0 — a hybrid architecture with a **pure JS HTTP 
 ## Getting Started
 
 ```
-npm install voiceit3-react-native --save
+npm install @voiceittech/voiceit3-react-native
 ```
 
 ## Requirements
@@ -46,7 +46,7 @@ Review your Voiceprint Phrases at: https://voiceit.io/phraseManagement
 ## Installation
 
 ```
-npm install voiceit3-react-native --save
+npm install @voiceittech/voiceit3-react-native
 cd ios && pod install
 ```
 
