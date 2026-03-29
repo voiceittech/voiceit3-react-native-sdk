@@ -1,5 +1,8 @@
 {
-  "name": "voiceit3-react-native",
+  "name": "@voiceittech/voiceit3-react-native",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "title": "VoiceIt3 React Native SDK",
   "version": "2.0.0",
   "description": "Voiceit's React Native SDK",
