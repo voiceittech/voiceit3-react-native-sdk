@@ -115,24 +115,6 @@ const phrases = await api.getPhrases('en-US');
 api.setNotificationUrl('https://your-webhook.com/callback');
 ```
 
-### Liveness Options
-
-Face and video biometric methods support liveness detection via options:
-
-```javascript
-await api.createFaceEnrollment('usr_...', {
-  photo: photoFile,
-  liveness: true,
-  livenessThreshold: 90,
-});
-
-await api.faceVerification('usr_...', {
-  photo: photoFile,
-  liveness: true,
-  livenessThreshold: 90,
-});
-```
-
 ### Native Biometric UI
 
 Use `VoiceItNative` for encapsulated biometric capture with built-in camera/mic UI. You must initialize the native module first:
