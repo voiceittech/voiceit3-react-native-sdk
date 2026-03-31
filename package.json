@@ -12,8 +12,7 @@
     "android",
     "index.js",
     "src/",
-    "ios",
-    "react-native-voiceit.podspec"
+    "ios"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

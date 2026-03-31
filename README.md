@@ -1,5 +1,10 @@
 # voiceit3-react-native
 
+[![Version](https://img.shields.io/badge/version-2.0.1-blue)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK/blob/master/LICENSE)
+[![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20Android-lightgrey)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK)
+[![VoiceIt API](https://img.shields.io/badge/VoiceIt-API%203.0-blue)](https://voiceit.io)
+
 VoiceIt's React Native SDK v2.0 — a hybrid architecture with a **pure JS HTTP client** for CRUD operations and **native modules** for encapsulated biometric capture UI (camera/mic).
 
 * [Getting Started](#getting-started)
@@ -8,7 +13,6 @@ VoiceIt's React Native SDK v2.0 — a hybrid architecture with a **pure JS HTTP 
 * [Usage](#usage)
   * [JS API Client (VoiceItAPI)](#js-api-client)
   * [Native Biometric UI (VoiceItNative)](#native-biometric-ui)
-* [API Reference](#api-reference)
 * [Theme Color](#theme-color)
 
 ## Getting Started
@@ -84,9 +88,7 @@ await api.removeUserFromGroup('grp_...', 'usr_...');
 const voiceEnrollments = await api.getAllVoiceEnrollments('usr_...');
 const faceEnrollments = await api.getAllFaceEnrollments('usr_...');
 const videoEnrollments = await api.getAllVideoEnrollments('usr_...');
-await api.deleteVoiceEnrollment(enrollmentId);
-await api.deleteFaceEnrollment(enrollmentId);
-await api.deleteVideoEnrollment(enrollmentId);
+await api.deleteAllEnrollments('usr_...');
 
 // Programmatic enrollment (with file)
 await api.createVoiceEnrollment('usr_...', 'en-US', 'my phrase', audioFile);

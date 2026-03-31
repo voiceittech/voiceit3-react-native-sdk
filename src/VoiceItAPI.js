@@ -141,16 +141,8 @@ class VoiceItAPI {
 
   // ─── Enrollment Deletion ────────────────────────────────────────────
 
-  deleteVoiceEnrollment(enrollmentId) {
-    return this._request('DELETE', `/enrollments/${enrollmentId}/voice`);
-  }
-
-  deleteFaceEnrollment(enrollmentId) {
-    return this._request('DELETE', `/enrollments/${enrollmentId}/face`);
-  }
-
-  deleteVideoEnrollment(enrollmentId) {
-    return this._request('DELETE', `/enrollments/${enrollmentId}/video`);
+  deleteAllEnrollments(userId) {
+    return this._request('DELETE', `/enrollments/${userId}/all`);
   }
 
   // ─── Voice Enrollment ───────────────────────────────────────────────
@@ -172,36 +164,34 @@ class VoiceItAPI {
 
   // ─── Face Enrollment ────────────────────────────────────────────────
 
+  createFaceEnrollment(userId, { photo, video } = {}) {
     const form = new FormData();
     form.append('userId', userId);
     if (photo) form.append('photo', photo);
     if (video) form.append('video', video);
-    const headers = {};
-    return this._request('POST', '/enrollments/face', { body: form, headers });
+    return this._request('POST', '/enrollments/face', { body: form });
   }
 
-    const headers = {};
+  createFaceEnrollmentByUrl(userId, fileUrl) {
     return this._request('POST', '/enrollments/face/byUrl', {
       query: { userId, fileUrl },
-      headers,
     });
   }
 
   // ─── Video Enrollment ───────────────────────────────────────────────
 
+  createVideoEnrollment(userId, contentLanguage, phrase, video) {
     const form = new FormData();
     form.append('userId', userId);
     form.append('contentLanguage', contentLanguage);
     form.append('phrase', phrase);
     form.append('video', video);
-    const headers = {};
-    return this._request('POST', '/enrollments/video', { body: form, headers });
+    return this._request('POST', '/enrollments/video', { body: form });
   }
 
-    const headers = {};
+  createVideoEnrollmentByUrl(userId, contentLanguage, phrase, fileUrl) {
     return this._request('POST', '/enrollments/video/byUrl', {
       query: { userId, contentLanguage, phrase, fileUrl },
-      headers,
     });
   }
 
@@ -224,36 +214,34 @@ class VoiceItAPI {
 
   // ─── Face Verification ──────────────────────────────────────────────
 
+  faceVerification(userId, { photo, video } = {}) {
     const form = new FormData();
     form.append('userId', userId);
     if (photo) form.append('photo', photo);
     if (video) form.append('video', video);
-    const headers = {};
-    return this._request('POST', '/verification/face', { body: form, headers });
+    return this._request('POST', '/verification/face', { body: form });
   }
 
-    const headers = {};
+  faceVerificationByUrl(userId, fileUrl) {
     return this._request('POST', '/verification/face/byUrl', {
       query: { userId, fileUrl },
-      headers,
     });
   }
 
   // ─── Video Verification ─────────────────────────────────────────────
 
+  videoVerification(userId, contentLanguage, phrase, video) {
     const form = new FormData();
     form.append('userId', userId);
     form.append('contentLanguage', contentLanguage);
     form.append('phrase', phrase);
     form.append('video', video);
-    const headers = {};
-    return this._request('POST', '/verification/video', { body: form, headers });
+    return this._request('POST', '/verification/video', { body: form });
   }
 
-    const headers = {};
+  videoVerificationByUrl(userId, contentLanguage, phrase, fileUrl) {
     return this._request('POST', '/verification/video/byUrl', {
       query: { userId, contentLanguage, phrase, fileUrl },
-      headers,
     });
   }
 
