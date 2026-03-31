@@ -1,25 +1,18 @@
 # voiceit3-react-native
 
 [![Version](https://img.shields.io/badge/version-2.0.1-blue)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK/blob/master/LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK/blob/main/LICENSE)
 [![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20Android-lightgrey)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK)
 [![VoiceIt API](https://img.shields.io/badge/VoiceIt-API%203.0-blue)](https://voiceit.io)
 
 VoiceIt's React Native SDK v2.0 — a hybrid architecture with a **pure JS HTTP client** for CRUD operations and **native modules** for encapsulated biometric capture UI (camera/mic).
 
-* [Getting Started](#getting-started)
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Usage](#usage)
   * [JS API Client (VoiceItAPI)](#js-api-client)
   * [Native Biometric UI (VoiceItNative)](#native-biometric-ui)
 * [Theme Color](#theme-color)
-
-## Getting Started
-
-```
-npm install @voiceittech/voiceit3-react-native
-```
 
 ## Requirements
 
@@ -41,11 +34,11 @@ npm install @voiceittech/voiceit3-react-native
 minSdkVersion: 24
 ```
 
-### Billing
-In order to use en-US or other content languages you need a developer account with funds. Add funds at: https://voiceit.io/billing
+### VoiceIt Account
+Sign up at [voiceit.io/pricing](https://voiceit.io/pricing) to get your API Key and Token. In order to use en-US or other content languages you need a developer account with funds. Add funds at: https://dashboard.voiceit.io/billing
 
 ### Voiceprint Phrases
-Review your Voiceprint Phrases at: https://voiceit.io/phraseManagement
+Review your Voiceprint Phrases at: https://dashboard.voiceit.io/phraseManagement
 
 ## Installation
 
