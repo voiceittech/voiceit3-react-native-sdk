@@ -162,3 +162,9 @@ VoiceItNative.initVoiceItWithTheme('API_KEY', 'AUTH_TOKEN', '#fbc132', (res) => 
   console.log(res);
 });
 ```
+
+## Support
+
+If you find this SDK useful, please consider giving it a star on GitHub — it helps others discover the project!
+
+[![GitHub stars](https://img.shields.io/github/stars/voiceittech/VoiceIt3-React-Native-SDK?style=social)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK/stargazers)
