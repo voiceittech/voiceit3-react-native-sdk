@@ -154,6 +154,11 @@ VoiceItNative.encapsulatedVideoVerification('usr_...', 'en-US', 'my phrase',
 - `encapsulatedVideoVerification(userId, contentLanguage, phrase, successCb, failureCb)`
 - `encapsulatedVoiceIdentification(groupId, contentLanguage, phrase, successCb, failureCb)`
 
+
+## Documentation
+
+For detailed API documentation, visit [voiceit.io/documentation](https://voiceit.io/documentation).
+
 ## Theme Color
 
 To set a theme color for the native biometric UI:
