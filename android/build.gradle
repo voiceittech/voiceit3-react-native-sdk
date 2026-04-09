@@ -38,12 +38,18 @@ android {
 
 repositories {
     mavenLocal()
-    maven { url 'https://jitpack.io' }
+    maven {
+        url = uri("https://maven.pkg.github.com/voiceittech/voiceit3-androidsdk")
+        credentials {
+            username = System.getenv("GITHUB_ACTOR") ?: project.findProperty("gpr.user") ?: ""
+            password = System.getenv("GITHUB_TOKEN") ?: project.findProperty("gpr.key") ?: ""
+        }
+    }
     google()
     mavenCentral()
 }
 
 dependencies {
-    implementation 'com.github.voiceittech:voiceit3-androidsdk:3.0.0'
+    implementation 'com.voiceittech:voiceit3-androidsdk:3.0.0'
     implementation 'com.facebook.react:react-native:+'  // From node_modules
 }
