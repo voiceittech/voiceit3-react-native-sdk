@@ -38,13 +38,12 @@ android {
 
 repositories {
     mavenLocal()
-    maven {
-    }
+    maven { url 'https://jitpack.io' }
     google()
     mavenCentral()
 }
 
 dependencies {
-    implementation 'com.github.voiceittech:VoiceItApi3AndroidSDK:2.4.0'
+    implementation 'com.github.voiceittech:VoiceIt3-AndroidSDK:2.4.2'
     implementation 'com.facebook.react:react-native:+'  // From node_modules
 }
