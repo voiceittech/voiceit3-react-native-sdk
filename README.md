@@ -46,6 +46,14 @@ Review your Voiceprint Phrases at: https://dashboard.voiceit.io/phraseManagement
 
 ## Installation
 
+This package is hosted on [GitHub Packages](https://github.com/orgs/voiceittech/packages). Add the registry to your `.npmrc`:
+
+```
+@voiceittech:registry=https://npm.pkg.github.com
+```
+
+Then install:
+
 ```
 npm install @voiceittech/voiceit3-react-native
 cd ios && pod install
