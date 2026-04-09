@@ -1,10 +1,10 @@
 <img src="./react-native.png" width="100%" style="width:100%" />
 
-[![Build](https://github.com/voiceittech/VoiceIt3-React-Native-SDK/actions/workflows/test.yml/badge.svg)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK/actions/workflows/test.yml)
-[![Dependabot](https://img.shields.io/github/issues-pr/voiceittech/VoiceIt3-React-Native-SDK/dependencies?label=dependabot&logo=dependabot&color=025e8c)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK/pulls?q=is%3Apr+label%3Adependencies)
-[![Version](https://img.shields.io/badge/version-2.0.3-blue)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK/blob/main/LICENSE)
-[![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20Android-lightgrey)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK)
+[![Build](https://github.com/voiceittech/voiceit3-react-native-sdk/actions/workflows/test.yml/badge.svg)](https://github.com/voiceittech/voiceit3-react-native-sdk/actions/workflows/test.yml)
+[![Dependabot](https://img.shields.io/github/issues-pr/voiceittech/voiceit3-react-native-sdk/dependencies?label=dependabot&logo=dependabot&color=025e8c)](https://github.com/voiceittech/voiceit3-react-native-sdk/pulls?q=is%3Apr+label%3Adependencies)
+[![Version](https://img.shields.io/badge/version-3.0.0-blue)](https://github.com/voiceittech/voiceit3-react-native-sdk)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/voiceittech/voiceit3-react-native-sdk/blob/main/LICENSE)
+[![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20Android-lightgrey)](https://github.com/voiceittech/voiceit3-react-native-sdk)
 [![VoiceIt API](https://img.shields.io/badge/VoiceIt-API%203.0-blue)](https://voiceit.io)
 
 VoiceIt's React Native SDK v2.0 — a hybrid architecture with a **pure JS HTTP client** for CRUD operations and **native modules** for encapsulated biometric capture UI (camera/mic).
@@ -174,4 +174,4 @@ VoiceItNative.initVoiceItWithTheme('API_KEY', 'AUTH_TOKEN', '#fbc132', (res) => 
 
 If you find this SDK useful, please consider giving it a star on GitHub — it helps others discover the project!
 
-[![GitHub stars](https://img.shields.io/github/stars/voiceittech/VoiceIt3-React-Native-SDK?style=social)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/voiceittech/voiceit3-react-native-sdk?style=social)](https://github.com/voiceittech/voiceit3-react-native-sdk/stargazers)
