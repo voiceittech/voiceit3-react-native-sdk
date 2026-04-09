@@ -1,8 +1,8 @@
-# voiceit3-react-native
+<img src="./react-native.png" width="100%" style="width:100%" />
 
 [![Build](https://github.com/voiceittech/VoiceIt3-React-Native-SDK/actions/workflows/test.yml/badge.svg)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK/actions/workflows/test.yml)
 [![Dependabot](https://img.shields.io/github/issues-pr/voiceittech/VoiceIt3-React-Native-SDK/dependencies?label=dependabot&logo=dependabot&color=025e8c)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK/pulls?q=is%3Apr+label%3Adependencies)
-[![Version](https://img.shields.io/badge/version-2.0.1-blue)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK)
+[![Version](https://img.shields.io/badge/version-2.0.3-blue)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK/blob/main/LICENSE)
 [![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20Android-lightgrey)](https://github.com/voiceittech/VoiceIt3-React-Native-SDK)
 [![VoiceIt API](https://img.shields.io/badge/VoiceIt-API%203.0-blue)](https://voiceit.io)
