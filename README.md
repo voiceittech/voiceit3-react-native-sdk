@@ -1,4 +1,4 @@
-<img src="./react-native.png" width="100%" style="width:100%" />
+<img src="https://raw.githubusercontent.com/voiceittech/voiceit3-react-native-sdk/main/react-native.png" width="100%" style="width:100%" />
 
 [![Build](https://github.com/voiceittech/voiceit3-react-native-sdk/actions/workflows/test.yml/badge.svg)](https://github.com/voiceittech/voiceit3-react-native-sdk/actions/workflows/test.yml)
 [![Dependabot](https://img.shields.io/github/issues-pr/voiceittech/voiceit3-react-native-sdk/dependencies?label=dependabot&logo=dependabot&color=025e8c)](https://github.com/voiceittech/voiceit3-react-native-sdk/pulls?q=is%3Apr+label%3Adependencies)
@@ -39,7 +39,7 @@ minSdkVersion: 24
 ### VoiceIt Account
 Sign up at [voiceit.io/pricing](https://voiceit.io/pricing) to get your API Key and Token, then log in to the [Dashboard](https://dashboard.voiceit.io) to manage your account.
 
-<img src="./Graphics/getcredentials.png" alt="API Key and Token" width="400px" />
+<img src="https://raw.githubusercontent.com/voiceittech/voiceit3-react-native-sdk/main/Graphics/getcredentials.png" alt="API Key and Token" width="400px" />
 
 ### Voiceprint Phrases
 Review your Voiceprint Phrases at: https://dashboard.voiceit.io/phraseManagement
