@@ -4,7 +4,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "title": "VoiceIt3 React Native SDK",
-  "version": "3.0.2",
+  "version": "3.0.4",
   "description": "Voiceit's React Native SDK",
   "main": "index.js",
   "files": [
