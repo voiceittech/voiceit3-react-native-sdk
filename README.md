@@ -183,3 +183,7 @@ VoiceItNative.initVoiceItWithTheme('API_KEY', 'AUTH_TOKEN', '#fbc132', (res) => 
 If you find this SDK useful, please consider giving it a star on GitHub — it helps others discover the project!
 
 [![GitHub stars](https://img.shields.io/github/stars/voiceittech/voiceit3-react-native-sdk?style=social)](https://github.com/voiceittech/voiceit3-react-native-sdk/stargazers)
+
+## License
+
+voiceit3-react-native-sdk is available under the MIT license. See the LICENSE file for more info.
