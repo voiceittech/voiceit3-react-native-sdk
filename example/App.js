@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {TouchableOpacity, StyleSheet, Image, Text, View, SafeAreaView, StatusBar} from 'react-native';
+import {TouchableOpacity, StyleSheet, Image, Text, View, SafeAreaView, StatusBar, Alert} from 'react-native';
 import {VoiceItNative} from '@voiceittech/voiceit3-react-native';
 import logo from "./res/logo.png";
 
@@ -115,14 +115,14 @@ export default class App extends Component{
         <TouchableOpacity
           activeOpacity={.8}
           style={styles.enrollButton}
-          onPress={() => this.resolveEnrollment(this.props.index, (res)=>{console.log(res);})}
+          onPress={() => this.resolveEnrollment(this.props.index, (res)=>{Alert.alert('Result', JSON.stringify(res));})}
           >
           <Text style={styles.buttonText}>{label} Enrollment</Text>
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={.8}
           style={styles.verifyButton}
-          onPress={() => this.resolveVerification(this.props.index, (res)=>{console.log(res);})}
+          onPress={() => this.resolveVerification(this.props.index, (res)=>{Alert.alert('Result', JSON.stringify(res));})}
           >
           <Text style={styles.buttonText}>{label} Verification</Text>
         </TouchableOpacity>
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   subtitle: {
-    color: '#FBC132',
+    color: '#919EAB',
     fontSize: 14,
     fontWeight: '500',
     marginTop: 4,
