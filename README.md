@@ -7,14 +7,39 @@
 [![Platform](https://img.shields.io/badge/platform-iOS%20%7C%20Android-lightgrey)](https://github.com/voiceittech/voiceit3-react-native-sdk)
 [![VoiceIt API](https://img.shields.io/badge/VoiceIt-API%203.0-blue)](https://voiceit.io)
 
-VoiceIt's React Native SDK v2.0 — a hybrid architecture with a **pure JS HTTP client** for CRUD operations and **native modules** for encapsulated biometric capture UI (camera/mic).
+A fully comprehensive React Native SDK that gives you access to VoiceIt's API 3.0 featuring Voice + Face Verification and Identification with built-in native biometric capture UI.
 
+* [UI Screenshots](#ui-screenshots)
+* [Getting Started](#getting-started)
 * [Requirements](#requirements)
 * [Installation](#installation)
-* [Usage](#usage)
-  * [JS API Client (VoiceItAPI)](#js-api-client)
-  * [Native Biometric UI (VoiceItNative)](#native-biometric-ui)
+* [API Calls](#api-calls)
+  * [Initialization](#initialization)
+  * [Encapsulated Methods](#encapsulated-methods)
+      * [Encapsulated Voice Enrollment](#encapsulated-voice-enrollment)
+      * [Encapsulated Face Enrollment](#encapsulated-face-enrollment)
+      * [Encapsulated Video Enrollment](#encapsulated-video-enrollment)
+      * [Encapsulated Voice Verification](#encapsulated-voice-verification)
+      * [Encapsulated Face Verification](#encapsulated-face-verification)
+      * [Encapsulated Video Verification](#encapsulated-video-verification)
+  * [JS API Client](#js-api-client)
 * [Theme Color](#theme-color)
+
+## UI Screenshots
+
+The SDK includes a built-in example app in `example/` with credential input, language selection, and all enrollment/verification features.
+
+The native biometric capture UI is provided by the underlying [iOS SDK](https://github.com/voiceittech/voiceit3-iossdk) and [Android SDK](https://github.com/voiceittech/voiceit3-androidsdk):
+
+<div>
+  <img width="250px" src="https://raw.githubusercontent.com/voiceittech/voiceit3-androidsdk/main/Graphics/demo_top.png?v=5" style="display: inline-block !important;"/><img width="250px" src="https://raw.githubusercontent.com/voiceittech/voiceit3-androidsdk/main/Graphics/demo_bottom.png?v=5" style="display: inline-block !important;"/><img width="250px" src="https://raw.githubusercontent.com/voiceittech/voiceit3-androidsdk/main/Graphics/voiceEnrollment.png?v=5" style="display: inline-block !important;"/><img width="250px" src="https://raw.githubusercontent.com/voiceittech/voiceit3-androidsdk/main/Graphics/faceEnrollment.png?v=5" style="display: inline-block !important;"/><img width="250px" src="https://raw.githubusercontent.com/voiceittech/voiceit3-androidsdk/main/Graphics/videoEnrollment.png?v=5" style="display: inline-block !important;"/>
+</div>
+
+## Getting Started
+
+Sign up at [voiceit.io/pricing](https://voiceit.io/pricing) to get your API Key and Token, then log in to the [Dashboard](https://dashboard.voiceit.io) to manage your account.
+
+<img src="https://raw.githubusercontent.com/voiceittech/voiceit3-react-native-sdk/main/Graphics/getcredentials.png" alt="API Key and Token" width="400px" />
 
 ## Requirements
 
@@ -26,8 +51,6 @@ VoiceIt's React Native SDK v2.0 — a hybrid architecture with a **pure JS HTTP 
 <string>This app requires access to your camera for biometric services</string>
 <key>NSMicrophoneUsageDescription</key>
 <string>This app requires access to your microphone for biometric services</string>
-<key>UIUserInterfaceStyle</key>
-<string>Light</string>
 ```
 
 ### Android
@@ -35,11 +58,6 @@ VoiceIt's React Native SDK v2.0 — a hybrid architecture with a **pure JS HTTP 
 ```
 minSdkVersion: 24
 ```
-
-### VoiceIt Account
-Sign up at [voiceit.io/pricing](https://voiceit.io/pricing) to get your API Key and Token, then log in to the [Dashboard](https://dashboard.voiceit.io) to manage your account.
-
-<img src="https://raw.githubusercontent.com/voiceittech/voiceit3-react-native-sdk/main/Graphics/getcredentials.png" alt="API Key and Token" width="400px" />
 
 ### Voiceprint Phrases
 Review your Voiceprint Phrases at: https://dashboard.voiceit.io/phraseManagement
@@ -59,15 +77,83 @@ npm install @voiceittech/voiceit3-react-native
 cd ios && pod install
 ```
 
-## Usage
+## API Calls
 
 ```javascript
 import VoiceItAPI, { VoiceItNative } from '@voiceittech/voiceit3-react-native';
 ```
 
+### Initialization
+
+Initialize the native module before using encapsulated methods:
+
+```javascript
+VoiceItNative.initVoiceIt('API_KEY', 'AUTH_TOKEN', (res) => {
+  console.log(res);
+});
+```
+
+### Encapsulated Methods
+
+These methods launch built-in native UI for biometric capture (camera/microphone).
+
+#### Encapsulated Voice Enrollment
+
+```javascript
+VoiceItNative.encapsulatedVoiceEnrollment('usr_...', 'en-US', 'Never forget tomorrow is a new day',
+  (res) => console.log('Success:', res),
+  (err) => console.log('Failed:', err)
+);
+```
+
+#### Encapsulated Face Enrollment
+
+```javascript
+VoiceItNative.encapsulatedFaceEnrollment('usr_...',
+  (res) => console.log('Success:', res),
+  (err) => console.log('Failed:', err)
+);
+```
+
+#### Encapsulated Video Enrollment
+
+```javascript
+VoiceItNative.encapsulatedVideoEnrollment('usr_...', 'en-US', 'Never forget tomorrow is a new day',
+  (res) => console.log('Success:', res),
+  (err) => console.log('Failed:', err)
+);
+```
+
+#### Encapsulated Voice Verification
+
+```javascript
+VoiceItNative.encapsulatedVoiceVerification('usr_...', 'en-US', 'Never forget tomorrow is a new day',
+  (res) => console.log('Success:', res),
+  (err) => console.log('Failed:', err)
+);
+```
+
+#### Encapsulated Face Verification
+
+```javascript
+VoiceItNative.encapsulatedFaceVerification('usr_...', 'en-US',
+  (res) => console.log('Success:', res),
+  (err) => console.log('Failed:', err)
+);
+```
+
+#### Encapsulated Video Verification
+
+```javascript
+VoiceItNative.encapsulatedVideoVerification('usr_...', 'en-US', 'Never forget tomorrow is a new day',
+  (res) => console.log('Success:', res),
+  (err) => console.log('Failed:', err)
+);
+```
+
 ### JS API Client
 
-Use `VoiceItAPI` for all CRUD operations (users, groups, enrollments, verification, identification) via direct HTTP calls:
+Use `VoiceItAPI` for all CRUD operations via direct HTTP calls:
 
 ```javascript
 const api = new VoiceItAPI('API_KEY', 'AUTH_TOKEN');
@@ -78,8 +164,6 @@ const newUser = await api.createUser();
 const exists = await api.checkUserExists('usr_...');
 await api.deleteUser('usr_...');
 const groups = await api.getGroupsForUser('usr_...');
-const token = await api.createUserToken('usr_...', '3600');
-await api.expireUserTokens('usr_...');
 
 // Groups
 const allGroups = await api.getAllGroups();
@@ -89,21 +173,11 @@ await api.deleteGroup('grp_...');
 await api.addUserToGroup('grp_...', 'usr_...');
 await api.removeUserFromGroup('grp_...', 'usr_...');
 
-// Enrollments (list & delete)
+// Enrollments
 const voiceEnrollments = await api.getAllVoiceEnrollments('usr_...');
 const faceEnrollments = await api.getAllFaceEnrollments('usr_...');
 const videoEnrollments = await api.getAllVideoEnrollments('usr_...');
 await api.deleteAllEnrollments('usr_...');
-
-// Programmatic enrollment (with file)
-await api.createVoiceEnrollment('usr_...', 'en-US', 'my phrase', audioFile);
-await api.createFaceEnrollment('usr_...', { photo: photoFile });
-await api.createVideoEnrollment('usr_...', 'en-US', 'my phrase', videoFile);
-
-// Enrollment by URL
-await api.createVoiceEnrollmentByUrl('usr_...', 'en-US', 'my phrase', 'https://...');
-await api.createFaceEnrollmentByUrl('usr_...', 'https://...');
-await api.createVideoEnrollmentByUrl('usr_...', 'en-US', 'my phrase', 'https://...');
 
 // Verification
 await api.voiceVerification('usr_...', 'en-US', 'my phrase', audioFile);
@@ -117,72 +191,17 @@ await api.videoIdentification('grp_...', 'en-US', 'my phrase', videoFile);
 
 // Phrases
 const phrases = await api.getPhrases('en-US');
-
-// Notification URL
-api.setNotificationUrl('https://your-webhook.com/callback');
 ```
-
-### Native Biometric UI
-
-Use `VoiceItNative` for encapsulated biometric capture with built-in camera/mic UI. You must initialize the native module first:
-
-```javascript
-// Initialize
-VoiceItNative.initVoiceIt('API_KEY', 'AUTH_TOKEN', (res) => {
-  console.log(res);
-});
-
-// Voice enrollment (with built-in recording UI)
-VoiceItNative.encapsulatedVoiceEnrollment('usr_...', 'en-US', 'my phrase',
-  (res) => console.log('Success:', res),
-  (err) => console.log('Failed:', err)
-);
-
-// Face verification (with built-in camera UI)
-VoiceItNative.encapsulatedFaceVerification('usr_...', 'en-US',
-  (res) => console.log('Success:', res),
-  (err) => console.log('Failed:', err)
-);
-
-// Video verification (with built-in camera + mic UI)
-VoiceItNative.encapsulatedVideoVerification('usr_...', 'en-US', 'my phrase',
-  (res) => console.log('Success:', res),
-  (err) => console.log('Failed:', err)
-);
-```
-
-#### Available native methods:
-- `initVoiceIt(apiKey, apiToken, callback)`
-- `initVoiceItWithTheme(apiKey, apiToken, hexColor, callback)`
-- `setNotificationURL(url, callback)`
-- `encapsulatedVoiceEnrollment(userId, contentLanguage, phrase, successCb, failureCb)`
-- `encapsulatedFaceEnrollment(userId, contentLanguage, successCb, failureCb)`
-- `encapsulatedVideoEnrollment(userId, contentLanguage, phrase, successCb, failureCb)`
-- `encapsulatedVoiceVerification(userId, contentLanguage, phrase, successCb, failureCb)`
-- `encapsulatedFaceVerification(userId, contentLanguage, successCb, failureCb)`
-- `encapsulatedVideoVerification(userId, contentLanguage, phrase, successCb, failureCb)`
-- `encapsulatedVoiceIdentification(groupId, contentLanguage, phrase, successCb, failureCb)`
-
-
-## Documentation
-
-For detailed API documentation, visit [voiceit.io/documentation](https://voiceit.io/documentation).
 
 ## Theme Color
 
-To set a theme color for the native biometric UI:
+To set a custom theme color for the native biometric UI:
 
 ```javascript
-VoiceItNative.initVoiceItWithTheme('API_KEY', 'AUTH_TOKEN', '#fbc132', (res) => {
+VoiceItNative.initVoiceItWithTheme('API_KEY', 'AUTH_TOKEN', '#FBC132', (res) => {
   console.log(res);
 });
 ```
-
-## Support
-
-If you find this SDK useful, please consider giving it a star on GitHub — it helps others discover the project!
-
-[![GitHub stars](https://img.shields.io/github/stars/voiceittech/voiceit3-react-native-sdk?style=social)](https://github.com/voiceittech/voiceit3-react-native-sdk/stargazers)
 
 ## License
 
