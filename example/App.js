@@ -48,7 +48,7 @@ export default class App extends Component {
     if (type === 'voice') {
       voiceItModule.encapsulatedVoiceEnrollment(userId, contentLanguage, phrase, cb, cb);
     } else if (type === 'face') {
-      voiceItModule.encapsulatedFaceEnrollment(userId, cb, cb);
+      voiceItModule.encapsulatedFaceEnrollment(userId, contentLanguage, cb, cb);
     } else {
       voiceItModule.encapsulatedVideoEnrollment(userId, contentLanguage, phrase, cb, cb);
     }

@@ -109,7 +109,7 @@ VoiceItNative.encapsulatedVoiceEnrollment('usr_...', 'en-US', 'Never forget tomo
 #### Encapsulated Face Enrollment
 
 ```javascript
-VoiceItNative.encapsulatedFaceEnrollment('usr_...',
+VoiceItNative.encapsulatedFaceEnrollment('usr_...', 'en-US',
   (res) => console.log('Success:', res),
   (err) => console.log('Failed:', err)
 );
