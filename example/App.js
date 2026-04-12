@@ -1,132 +1,214 @@
 import React, {Component} from 'react';
-import {TouchableOpacity, StyleSheet, Image, Text, View, SafeAreaView, StatusBar, Alert} from 'react-native';
+import {
+  TouchableOpacity,
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  StatusBar,
+  Alert,
+  TextInput,
+  ScrollView,
+} from 'react-native';
 import {VoiceItNative} from '@voiceittech/voiceit3-react-native';
-import logo from "./res/logo.png";
 
 const voiceItModule = VoiceItNative;
-const options = {
-  user_id: "USER_ID_HERE",
-  group_id: "GROUP_ID_HERE",
-  content_language: "CONTENT_LANGUAGE_HERE",
-  phrase: "PHRASE",
-  apiKey: "API_KEY_HERE",
-  apiToken: "API_TOKEN_HERE"
-  };
 
-export default class App extends Component{
-  constructor () {
+export default class App extends Component {
+  constructor() {
     super();
     this.state = {
-      index: 0
-    }
+      apiKey: '',
+      apiToken: '',
+      userId: '',
+      phrase: 'Never forget tomorrow is a new day',
+      contentLanguage: 'en-US',
+    };
   }
-  componentDidMount() {
-    voiceItModule.initVoiceIt(options.apiKey, options.apiToken, (response)=>{
-      //
-    });
-  }
-  render() {
-    const tabs = ['Voice', 'Face', 'Video'];
-    return(
-      <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#212B36" />
-      <Image resizeMode='contain' style={styles.image} source={logo}/>
-      <Text style={styles.title}>VoiceIt API 3.0</Text>
-      <Text style={styles.subtitle}>Biometric Verification Demo</Text>
-      <View style={styles.buttonPanel}>
-      {tabs.map((tab, i) => (
-        <TouchableOpacity
-          key={tab}
-          activeOpacity={.8}
-          style={[styles.tabButton, this.state.index == i && styles.tabButtonSelected]}
-          onPress={()=>{this.setState({ index: i });}}>
-         <Text style={[styles.tabText, this.state.index == i && styles.tabTextSelected]}>{tab}</Text>
-        </TouchableOpacity>
-      ))}
-      </View>
-      <View style={styles.action}>
-      <Action index={this.state.index}></Action>
-      </View>
-      </SafeAreaView>
-    );
-  }
-}
 
- class Action extends Component {
-  enrollVoice(callback){
-    voiceItModule.encapsulatedVoiceEnrollment(options.user_id,options.content_language, options.phrase,
-      (successResponse)=>{callback(successResponse);},
-      (failureResponse)=>{callback(failureResponse);}
-    );
+  initSDK() {
+    const {apiKey, apiToken, userId} = this.state;
+    if (!apiKey || !apiToken) {
+      Alert.alert('Result', 'Please enter your API Key and API Token');
+      return false;
+    }
+    if (!userId) {
+      Alert.alert('Result', 'Please enter a User ID');
+      return false;
+    }
+    voiceItModule.initVoiceIt(apiKey, apiToken, () => {});
+    return true;
   }
-  verifyVoice(callback){
-    voiceItModule.encapsulatedVoiceVerification(options.user_id,options.content_language, options.phrase,
-      (successResponse)=>{callback(successResponse);},
-      (failureResponse)=>{callback(failureResponse);}
-    );
-  }
-  enrollFace(callback){
-      voiceItModule.encapsulatedFaceEnrollment(options.user_id,
-      (successResponse)=>{callback(successResponse);},
-      (failureResponse)=>{callback(failureResponse);}
-    );
-  }
-  verifyFace(callback){
-      voiceItModule.encapsulatedFaceVerification(options.user_id,options.content_language,
-      (successResponse)=>{callback(successResponse);},
-      (failureResponse)=>{callback(failureResponse);}
-    );
-  }
-  enrollVideo(callback){
-    voiceItModule.encapsulatedVideoEnrollment(options.user_id,options.content_language, options.phrase,
-      (successResponse)=>{callback(successResponse);},
-      (failureResponse)=>{callback(failureResponse);}
-    );
-  }
-  verifyVideo(callback){
-    voiceItModule.encapsulatedVideoVerification(options.user_id,options.content_language, options.phrase,
-      (successResponse)=>{callback(successResponse);},
-      (failureResponse)=>{callback(failureResponse);}
-    );
-  }
-  resolveEnrollment(index, callback){
-    if (index == 0){
-      this.enrollVoice((res)=>{callback(res);});
-    } else if (index == 1){
-      this.enrollFace((res)=>{callback(res);});
+
+  doEnrollment(type) {
+    if (!this.initSDK()) return;
+    const {userId, contentLanguage, phrase} = this.state;
+    const cb = (res) => Alert.alert('Result', JSON.stringify(res));
+
+    if (type === 'voice') {
+      voiceItModule.encapsulatedVoiceEnrollment(userId, contentLanguage, phrase, cb, cb);
+    } else if (type === 'face') {
+      voiceItModule.encapsulatedFaceEnrollment(userId, cb, cb);
     } else {
-      this.enrollVideo((res)=>{callback(res);});
+      voiceItModule.encapsulatedVideoEnrollment(userId, contentLanguage, phrase, cb, cb);
     }
   }
-  resolveVerification(index, callback){
-    if (index == 0){
-      this.verifyVoice((res)=>{callback(res);});
-    } else if (index == 1){
-      this.verifyFace((res)=>{callback(res);});
+
+  doVerification(type) {
+    if (!this.initSDK()) return;
+    const {userId, contentLanguage, phrase} = this.state;
+    const cb = (res) => Alert.alert('Result', JSON.stringify(res));
+
+    if (type === 'voice') {
+      voiceItModule.encapsulatedVoiceVerification(userId, contentLanguage, phrase, cb, cb);
+    } else if (type === 'face') {
+      voiceItModule.encapsulatedFaceVerification(userId, contentLanguage, cb, cb);
     } else {
-      this.verifyVideo((res)=>{callback(res);});
+      voiceItModule.encapsulatedVideoVerification(userId, contentLanguage, phrase, cb, cb);
     }
   }
+
   render() {
-    const labels = ['Voice', 'Face', 'Video'];
-    const label = labels[this.props.index];
+    const languages = ['en-US', 'es-ES', 'no-STT'];
+
     return (
-      <View style={styles.actionContainer}>
-        <TouchableOpacity
-          activeOpacity={.8}
-          style={styles.enrollButton}
-          onPress={() => this.resolveEnrollment(this.props.index, (res)=>{Alert.alert('Result', JSON.stringify(res));})}
-          >
-          <Text style={styles.buttonText}>{label} Enrollment</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          activeOpacity={.8}
-          style={styles.verifyButton}
-          onPress={() => this.resolveVerification(this.props.index, (res)=>{Alert.alert('Result', JSON.stringify(res));})}
-          >
-          <Text style={styles.buttonText}>{label} Verification</Text>
-        </TouchableOpacity>
-      </View>
+      <SafeAreaView style={styles.container}>
+        <StatusBar barStyle="light-content" backgroundColor="#212B36" />
+        <ScrollView
+          style={styles.scroll}
+          contentContainerStyle={styles.scrollContent}
+          keyboardShouldPersistTaps="handled">
+
+          {/* Header */}
+          <Text style={styles.lockIcon}>{'\u{1F512}'}</Text>
+          <Text style={styles.title}>VoiceIt API 3.0</Text>
+          <Text style={styles.subtitle}>Biometric Verification Demo</Text>
+
+          {/* Credentials */}
+          <View style={styles.inputRow}>
+            <Text style={styles.inputIcon}>ℹ️</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="API Key"
+              placeholderTextColor="#919EAB"
+              value={this.state.apiKey}
+              onChangeText={(t) => this.setState({apiKey: t})}
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+          </View>
+
+          <View style={styles.inputRow}>
+            <Text style={styles.inputIcon}>🔒</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="API Token"
+              placeholderTextColor="#919EAB"
+              value={this.state.apiToken}
+              onChangeText={(t) => this.setState({apiToken: t})}
+              secureTextEntry
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+          </View>
+
+          <View style={styles.inputRow}>
+            <Text style={styles.inputIcon}>👤</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="User ID"
+              placeholderTextColor="#919EAB"
+              value={this.state.userId}
+              onChangeText={(t) => this.setState({userId: t})}
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+          </View>
+
+          {/* Phrase */}
+          <Text style={styles.fieldLabel}>Phrase</Text>
+          <TextInput
+            style={styles.phraseInput}
+            value={this.state.phrase}
+            onChangeText={(t) => this.setState({phrase: t})}
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
+
+          {/* Language Picker */}
+          <View style={styles.languageRow}>
+            {languages.map((lang) => (
+              <TouchableOpacity
+                key={lang}
+                style={[
+                  styles.langButton,
+                  this.state.contentLanguage === lang && styles.langButtonSelected,
+                ]}
+                onPress={() => this.setState({contentLanguage: lang})}>
+                <Text
+                  style={[
+                    styles.langText,
+                    this.state.contentLanguage === lang && styles.langTextSelected,
+                  ]}>
+                  {lang}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+
+          {/* Divider */}
+          <View style={styles.divider} />
+
+          {/* Enrollment */}
+          <Text style={styles.sectionHeader}>Enrollment</Text>
+
+          <TouchableOpacity
+            style={styles.enrollButton}
+            activeOpacity={0.8}
+            onPress={() => this.doEnrollment('voice')}>
+            <Text style={styles.buttonText}>Voice Enrollment</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.enrollButton}
+            activeOpacity={0.8}
+            onPress={() => this.doEnrollment('face')}>
+            <Text style={styles.buttonText}>Face Enrollment</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.enrollButton}
+            activeOpacity={0.8}
+            onPress={() => this.doEnrollment('video')}>
+            <Text style={styles.buttonText}>Video Enrollment</Text>
+          </TouchableOpacity>
+
+          {/* Verification */}
+          <Text style={[styles.sectionHeader, {marginTop: 4}]}>Verification</Text>
+
+          <TouchableOpacity
+            style={styles.verifyButton}
+            activeOpacity={0.8}
+            onPress={() => this.doVerification('voice')}>
+            <Text style={styles.buttonText}>Voice Verification</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.verifyButton}
+            activeOpacity={0.8}
+            onPress={() => this.doVerification('face')}>
+            <Text style={styles.buttonText}>Face Verification</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.verifyButton}
+            activeOpacity={0.8}
+            onPress={() => this.doVerification('video')}>
+            <Text style={styles.buttonText}>Video Verification</Text>
+          </TouchableOpacity>
+
+        </ScrollView>
+      </SafeAreaView>
     );
   }
 }
@@ -134,37 +216,114 @@ export default class App extends Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     backgroundColor: '#212B36',
-    justifyContent: 'center',
-    paddingHorizontal: 30,
+  },
+  scroll: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingHorizontal: 24,
+    paddingTop: 20,
+    paddingBottom: 24,
+  },
+  lockIcon: {
+    fontSize: 40,
+    textAlign: 'center',
+    marginBottom: 8,
   },
   title: {
     color: '#FFFFFF',
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: '700',
-    marginTop: 12,
+    textAlign: 'center',
   },
   subtitle: {
     color: '#919EAB',
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: '500',
+    textAlign: 'center',
     marginTop: 4,
     marginBottom: 24,
   },
-  action: {
-    width: '100%',
-    marginTop: 20,
+  inputRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#38424F',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: 'rgba(251, 193, 50, 0.3)',
+    paddingHorizontal: 12,
+    marginBottom: 12,
+    height: 52,
   },
-  actionContainer: {
-    width: '100%',
+  inputIcon: {
+    fontSize: 18,
+    marginRight: 10,
+    width: 24,
+    textAlign: 'center',
+  },
+  input: {
+    flex: 1,
+    color: '#FFFFFF',
+    fontSize: 14,
+  },
+  fieldLabel: {
+    color: '#919EAB',
+    fontSize: 12,
+    marginBottom: 4,
+  },
+  phraseInput: {
+    backgroundColor: '#38424F',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: 'rgba(251, 193, 50, 0.3)',
+    paddingHorizontal: 12,
+    height: 52,
+    color: '#FFFFFF',
+    fontSize: 14,
+    marginBottom: 12,
+  },
+  languageRow: {
+    flexDirection: 'row',
+    marginBottom: 16,
+  },
+  langButton: {
+    flex: 1,
+    paddingVertical: 12,
+    alignItems: 'center',
+    backgroundColor: '#38424F',
+    marginHorizontal: 4,
+    borderRadius: 8,
+  },
+  langButtonSelected: {
+    backgroundColor: '#FBC132',
+  },
+  langText: {
+    color: '#919EAB',
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  langTextSelected: {
+    color: '#000000',
+    fontWeight: '700',
+  },
+  divider: {
+    height: 1,
+    backgroundColor: '#38424F',
+    marginBottom: 16,
+  },
+  sectionHeader: {
+    color: '#919EAB',
+    fontSize: 13,
+    fontWeight: '600',
+    marginBottom: 12,
   },
   enrollButton: {
     borderRadius: 12,
     height: 52,
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 6,
+    marginBottom: 16,
     backgroundColor: '#505050',
   },
   verifyButton: {
@@ -172,40 +331,12 @@ const styles = StyleSheet.create({
     height: 52,
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 6,
+    marginBottom: 16,
     backgroundColor: '#FBC132',
   },
   buttonText: {
     color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  tabButton: {
-    flex: 1,
-    paddingVertical: 12,
-    alignItems: 'center',
-    backgroundColor: '#505050',
-    marginHorizontal: 4,
-    borderRadius: 10,
-  },
-  tabButtonSelected: {
-    backgroundColor: '#FBC132',
-  },
-  tabText: {
-    color: '#FFFFFF',
     fontSize: 15,
-    fontWeight: '500',
-  },
-  tabTextSelected: {
-    color: '#FFFFFF',
-    fontWeight: '700',
-  },
-  buttonPanel: {
-    flexDirection: 'row',
-    width: '100%',
-  },
-  image: {
-    width: '60%',
-    height: '15%',
+    fontWeight: '600',
   },
 });
