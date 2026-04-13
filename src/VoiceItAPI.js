@@ -295,6 +295,36 @@ class VoiceItAPI {
     });
   }
 
+  // ─── Sub-Accounts ────────────────────────────────────────────────────
+
+  createManagedSubAccount({ firstName, lastName, email, password, contentLanguage } = {}) {
+    const form = new FormData();
+    form.append('firstName', firstName || '');
+    form.append('lastName', lastName || '');
+    form.append('email', email || '');
+    form.append('password', password || '');
+    form.append('contentLanguage', contentLanguage || '');
+    return this._request('POST', '/subaccount/managed', { body: form });
+  }
+
+  createUnmanagedSubAccount({ firstName, lastName, email, password, contentLanguage } = {}) {
+    const form = new FormData();
+    form.append('firstName', firstName || '');
+    form.append('lastName', lastName || '');
+    form.append('email', email || '');
+    form.append('password', password || '');
+    form.append('contentLanguage', contentLanguage || '');
+    return this._request('POST', '/subaccount/unmanaged', { body: form });
+  }
+
+  regenerateSubAccountAPIToken(subAccountAPIKey) {
+    return this._request('POST', `/subaccount/${subAccountAPIKey}`);
+  }
+
+  deleteSubAccount(subAccountAPIKey) {
+    return this._request('DELETE', `/subaccount/${subAccountAPIKey}`);
+  }
+
   // ─── Phrases ────────────────────────────────────────────────────────
 
   getPhrases(languageCode) {
