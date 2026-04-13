@@ -29,10 +29,10 @@ A fully comprehensive React Native SDK that gives you access to VoiceIt's API 3.
 
 The SDK includes a built-in example app in `example/` with credential input, language selection, and all enrollment/verification features.
 
-The native biometric capture UI is provided by the underlying [iOS SDK](https://github.com/voiceittech/voiceit3-iossdk) and [Android SDK](https://github.com/voiceittech/voiceit3-androidsdk):
+The native biometric capture UI is provided by the underlying [iOS SDK](https://github.com/voiceittech/voiceit3-ios-sdk) and [Android SDK](https://github.com/voiceittech/voiceit3-android-sdk):
 
 <div>
-  <img width="250px" src="https://raw.githubusercontent.com/voiceittech/voiceit3-androidsdk/main/Graphics/demo_top.png?v=5" style="display: inline-block !important;"/><img width="250px" src="https://raw.githubusercontent.com/voiceittech/voiceit3-androidsdk/main/Graphics/demo_bottom.png?v=5" style="display: inline-block !important;"/><img width="250px" src="https://raw.githubusercontent.com/voiceittech/voiceit3-androidsdk/main/Graphics/voiceEnrollment.png?v=5" style="display: inline-block !important;"/><img width="250px" src="https://raw.githubusercontent.com/voiceittech/voiceit3-androidsdk/main/Graphics/faceEnrollment.png?v=5" style="display: inline-block !important;"/><img width="250px" src="https://raw.githubusercontent.com/voiceittech/voiceit3-androidsdk/main/Graphics/videoEnrollment.png?v=5" style="display: inline-block !important;"/>
+  <img width="250px" src="https://raw.githubusercontent.com/voiceittech/voiceit3-android-sdk/main/Graphics/demo_top.png?v=5" style="display: inline-block !important;"/><img width="250px" src="https://raw.githubusercontent.com/voiceittech/voiceit3-android-sdk/main/Graphics/demo_bottom.png?v=5" style="display: inline-block !important;"/><img width="250px" src="https://raw.githubusercontent.com/voiceittech/voiceit3-android-sdk/main/Graphics/voiceEnrollment.png?v=5" style="display: inline-block !important;"/><img width="250px" src="https://raw.githubusercontent.com/voiceittech/voiceit3-android-sdk/main/Graphics/faceEnrollment.png?v=5" style="display: inline-block !important;"/><img width="250px" src="https://raw.githubusercontent.com/voiceittech/voiceit3-android-sdk/main/Graphics/videoEnrollment.png?v=5" style="display: inline-block !important;"/>
 </div>
 
 ## Getting Started
