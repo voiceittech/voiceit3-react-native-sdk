@@ -14,6 +14,18 @@ import {VoiceItNative} from '@voiceittech/voiceit3-react-native';
 
 const voiceItModule = VoiceItNative;
 
+// SECURITY WARNING: Never ship an app with your API Key and API Token
+// hardcoded or embedded in client-side code. These are long-lived server
+// credentials — anyone who extracts them from the app binary gains full
+// access to your VoiceIt account.
+//
+// In production, your mobile app should call YOUR backend server, which
+// holds the credentials securely and proxies requests to the VoiceIt API
+// (or creates short-lived user tokens via the createUserToken endpoint).
+//
+// This demo uses text inputs for convenience only. Replace this pattern
+// with a backend-proxy architecture before releasing to users.
+
 export default class App extends Component {
   constructor() {
     super();
